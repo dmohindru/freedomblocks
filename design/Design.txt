@@ -1,0 +1,90 @@
+THE DESIGN OF FREEDOM BLOCKS A TETRIS CLONE					10/01/2017
+-------------------------------------------
+
+Graphics
+--------
+1. Game will consist of 16 row and 10 columns
+2. Each square block will be 30 pixel in size.
+3. Game resoution will be 800X600 px.
+4. In game grid and in tetriminos each block will have a space of
+	2 px in between them to give a nice professional look.
+5. Colors of block will be Red, Green, Yellow, Blue
+6. Status signs to show Player level, Player scores
+7. Each number for scores and level will be 50px high and 30px wide.
+8. Spacing between numbers will be 10px, margin between top and bottom
+	will be 5px.
+9. Data Related to graphics rendering can change as needed
+	Squres Widht: 30px
+	Square Spacing: 2px
+	Total Width of Play Grid: 318px
+	Total Height of Play Gird: 510px
+	Start X of Play Grid: 300
+	Start Y of Play Grid: 60
+	Font Width of a game: 30px
+	Font Height of a game: 50px
+	Spacing between digits: 5px
+	Start X of Scores Number: 50
+	Start Y of Scores Number: 150
+	Total digits in score: 4
+	Start X of Lever Number: 85
+	Start Y of Lever Number: 450
+	Font Name: Sans (Normal - Inkspace)
+	Digits and Square Data File
+	Total Width of Data file: 355px
+	Total Height of Data file: 110px 
+	Start X for Squares: 5
+	Start Y for Squares: 10
+	Spacing between squares: 5px
+	Start X for Digits: 5
+	Start Y for Digits: 50
+	Spacing between digits: 5px
+
+Game Play
+---------
+1. There will be 10 levels in games
+2. As level progresses speed of blocks falling will increase
+3. For each line cleared player will get 10 points. And any subsiquent
+	line clears after first set of line cleared player will get 15 points
+	for each line.
+4. Player progress to next level when total of 10 lines are cleared, wheather
+	first set or any subsiquent set of line.
+5. Game will record high score in a text file.
+6. If player clears all the 10 levels then he wins the game and his scores
+	are checked against previous high scores saved. If his scores are
+	more then recored high score then message is displayed as
+	"You got highest score"
+	"You Win"
+7. Player loses the game if no more tetrominos can be brough in the grid
+	then a game is finished and message is displayed
+	"Game Over"
+8. When game is finished player scored are checked against previous high
+	score recored and a message is displayed as
+	"You got higest score"
+	and these high scores are recorded in file.
+
+Controls
+--------
+1. When game starts a welcome screen is displayed. Player will have to
+	press A button to proceed to next screen.
+2. Left arrow will move tetrominos to left.
+2. Right arrow will move tetrominos to right.
+3. Up arrow will rotate tetrominos.
+4. Down arrow will move tetrominos to its land position.
+5. When game is finished (Player wins or game over), player will have to
+	press A button to go to welcome screen
+6. During a game play player can press P button to pause game.
+
+Implementation
+--------------
+We will implement games in following phases
+1. Rotation of tetrimions with colision detection and edge out of bound
+	detection (left and right of play area).
+2. Falling of tetriminos with collision detection.
+3. Clearing of lines.
+4. Scores and leveling
+5. Welcome screen, help screen, "You Win", "Game Over" etc screen 
+	looping.
+
+Game Logic
+----------
+ 
