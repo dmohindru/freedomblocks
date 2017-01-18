@@ -5,6 +5,7 @@
 #include <time.h>
 #include "gamedefs.h"
 #include "resources.h"
+#include "tetromino.h"
 
 static Sint32 seed = 0;
 
@@ -26,7 +27,7 @@ int main(int argc, char **argv)
 {
 	SDL_Rect src, dest;
 	SDL_Event event;
-	int i, j, random, play = 1;
+	int i, j, k, l, random, play = 1, row, col;
 	//avoid compiler warnings
 	argc++;
 	argv++;
@@ -53,16 +54,7 @@ int main(int argc, char **argv)
 	while(SDL_WaitEvent(&event) != 0 && play)
     {
 		SDL_keysym keysym;
-		switch (event.type)
-		{
-			case SDL_KEYDOWN:
-				keysym = event.key.keysym;
-				if(keysym.sym == SDLK_q)
-					play = 0;
-				break;
-			case SDL_QUIT:
-				play = 0;
-		}
+		
 		src.w = background->w;
 		src.h = background->h;
 		src.x = 0;
@@ -96,7 +88,7 @@ int main(int argc, char **argv)
 			dest.y = LEVEL_STARTY;
 			SDL_BlitSurface(gamedata, &src, screen, &dest);
 		}
-		for(i=0;i<PLAY_GRID_ROW;i++)
+		/*for(i=0;i<PLAY_GRID_ROW;i++)
 		{
 			random = getrandom() % 2;
 			if(random)
@@ -116,6 +108,44 @@ int main(int argc, char **argv)
 					
 				}
 			}
+		}*/
+		switch (event.type)
+		{
+			case SDL_KEYDOWN:
+				keysym = event.key.keysym;
+				if(keysym.sym == SDLK_q)
+					play = 0;
+				if(keysym.sym == SDLK_UP)
+				{
+					//printf("Up key pressed\n");
+					row = 5;
+					src.w = SQUARE_WIDTH;
+					src.h = SQUARE_WIDTH;
+					src.x = SQUARE_STARTX;
+					src.y = SQUARE_STARTY;
+					dest.w = SQUARE_WIDTH;
+					dest.h = SQUARE_WIDTH;
+					for(i=0;i<TETROMINO_GRID;i++)
+					{
+						col = 5;
+						for(j=0;j<TETROMINO_GRID;j++)
+						{
+							if(tetrominos[1][0][i][j])
+							{
+								dest.x = PLAY_GRID_STARTX + col * (SQUARE_WIDTH + TETROMINO_SPACING);
+								dest.y = PLAY_GRID_STARTY + row * (SQUARE_WIDTH + TETROMINO_SPACING);
+								SDL_BlitSurface(gamedata, &src, screen, &dest);
+								//printf("drawing tetrominos at i: %d, j: %d\n", i, j);
+								
+							}
+							col++;
+						}
+						row++;
+					}
+				}
+				break;
+			case SDL_QUIT:
+				play = 0;
 		}
 		SDL_UpdateRect(screen, 0, 0, 0, 0);
 	}

@@ -9,7 +9,7 @@ OBJS= main.o resources.o
 freedomblock: $(OBJS)
 	gcc $(CFLAGS) $(OBJS) -o freedomblock $(LIBS)
 
-main.o:	main.c gamedefs.h
+main.o:	main.c gamedefs.h tetromino.h
 	gcc $(CFLAGS) -c main.c
 
 resources.o: resources.c resources.h
