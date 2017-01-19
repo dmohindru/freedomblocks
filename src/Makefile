@@ -1,7 +1,7 @@
 CFLAGS=-W -Wall -ggdb `sdl-config --cflags`
 # LIBS=-lm `sdl-config --libs` -ltcl -lopenal -lsndfile -lvorbisfile -lvorbis -logg -lalut
 LIBS=`sdl-config --libs` -lSDL_image
-OBJS= main.o resources.o
+OBJS= main.o resources.o tetromino.o
 #CC=gcc
 
 .PHONY: clean
@@ -14,6 +14,9 @@ main.o:	main.c gamedefs.h tetromino.h
 
 resources.o: resources.c resources.h
 	gcc $(CFLAGS) -c resources.c
+
+tetromino.o: tetromino.c tetromino.h
+	gcc $(CFLAGS) -c tetromino.c
 	
 clean:
 	rm -f freedomblock $(OBJS)

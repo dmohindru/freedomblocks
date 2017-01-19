@@ -29,10 +29,7 @@
 #define LEVEL_STARTY	450 //Start Y of level
 #define LEVEL_DIGITS	2 //Number of digits in level
 
-#define RED_SQUARE		1 //Index of red square in game data bitmap
-#define GREEN_SQUARE	2 //Index of green square in game data bitmap
-#define YELLOW_SQUARE	3 //Index of yellow square in game data bitmap
-#define CYAN_SQUARE		4 //Index of cyan square in game data bitmap
+#define NUM_SQUARE		4 //Number of squares in our data bitmap
 
 #define FONT_STARTX		5 //Start X for fonts in game data bitmap
 #define FONT_STARTY		50 //Start Y for fonts in game data bitmap
