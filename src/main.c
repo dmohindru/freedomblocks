@@ -58,7 +58,8 @@ static void playGame()
 		DrawBackground();
 		DrawScores();
 		DrawLevel();
-		DrawTetromino();
+		DrawTetromino(); //current tetromino
+		DrawTetromino(); //next tetromino
 		
 	}
 }
