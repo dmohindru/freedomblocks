@@ -26,8 +26,8 @@ static void playGame()
 {
 	int quit = 0;
 	Uint8 *keystate;
-	SDL_Rect src, dest;
-	int i, j, curr_peice = 0, rotation = 0, random, play = 1, row, col;
+	//SDL_Rect src, dest;
+	//int i, j, curr_peice = 0, rotation = 0, random, play = 1, row, col;
 	while(quit == 0)
 	{
 		SDL_PumpEvents();
@@ -37,39 +37,41 @@ static void playGame()
 		if(keystate[SDLK_UP])
 		{
 			//rotate between different shapes and rotations
-			rotation++;
-			if(rotation >= TETROMINO_ROTATION)
-			{
-				rotation = 0;
-				curr_peice++;
-				if(curr_peice >= TETROMINO_NUM)
-					curr_peice = 0;
-			}
+			RotateTetromino();
 		}
 		if(keystate[SDLK_LEFT])
 		{
+			MoveTetromino(LEFT);
 			printf("Left key pressed\n");
 		}
 		if(keystate[SDLK_RIGHT])
 		{
+			MoveTetromino(RIGHT);
 			printf("Right key pressed\n");
 		}
 		if(keystate[SDLK_DOWN])
 		{
+			LandTetromino();
 			printf("Down key pressed");
 		}
+		//draw stuff
+		DrawBackground();
+		DrawScores();
+		DrawLevel();
+		DrawTetromino();
+		
 	}
 }
 
 int main(int argc, char **argv)
 {
-	SDL_Rect src, dest;
-	SDL_Event event;
-	int i, j, curr_peice = 0, rotation = 0, random, play = 1, row, col;
+	//SDL_Rect src, dest;
+	//SDL_Event event;
+	//int i, j, curr_peice = 0, rotation = 0, random, play = 1, row, col;
 	//avoid compiler warnings
 	argc++;
 	argv++;
-	initrandom();
+	//initrandom();
 	if(SDL_Init(SDL_INIT_VIDEO) != 0)
     {
 		printf("Unable to initialise SDL: %s\n", SDL_GetError());
@@ -87,9 +89,9 @@ int main(int argc, char **argv)
 	
 	//load game graphics
 	LoadGameGraphics();
+	PlayGame();
 	
-	
-	while(SDL_WaitEvent(&event) != 0 && play)
+	/*while(SDL_WaitEvent(&event) != 0 && play)
     {
 		SDL_keysym keysym;
 		switch (event.type)
@@ -198,8 +200,9 @@ int main(int argc, char **argv)
 			}
 		}*/
 		
-		SDL_UpdateRect(screen, 0, 0, 0, 0);
-	}
+		//SDL_UpdateRect(screen, 0, 0, 0, 0);
+	/*	SDL_Flip(screen);
+	}*/
 	FreeGameGraphics();
 	
 	return 0;
