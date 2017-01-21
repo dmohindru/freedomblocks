@@ -44,23 +44,22 @@ Game Play
 1. There will be 10 levels in games
 2. As level progresses speed of blocks falling will increase
 3. For each line cleared player will get 10 points. And any subsiquent
-	line clears after first set of line cleared player will get 15 points
-	for each line.
-4. Player progress to next level when total of 10 lines are cleared, wheather
-	first set or any subsiquent set of line.
+	line clears after first set of line cleared player will get 
+	15 points for each line.
+4. Player progress to next level when total of 10 lines are cleared, 
+	wheather first set or any subsiquent set of line.
 5. Game will record high score in a text file.
-6. If player clears all the 10 levels then he wins the game and his scores
-	are checked against previous high scores saved. If his scores are
-	more then recored high score then message is displayed as
+6. If player clears all the 10 levels then he wins the game and his 
+	scores are checked against previous high scores saved. 
+	If his scores are more then recored high score then message 
+	is displayed as	
 	"You got highest score"
 	"You Win"
+	And his hi scores are recorded in file.
 7. Player loses the game if no more tetrominos can be brough in the grid
 	then a game is finished and message is displayed
 	"Game Over"
-8. When game is finished player scored are checked against previous high
-	score recored and a message is displayed as
-	"You got higest score"
-	and these high scores are recorded in file.
+	
 
 Controls
 --------
@@ -87,6 +86,29 @@ We will implement games in following phases
 
 Game Logic
 ----------
+
+------------
+Game screens
+------------
+
+---------------
+Welcome Screen
+---------------
+Games Starts Welcome screen is displayed
+While(Read keyboard input)
+	if(a key pressed)
+		Main game loop starts
+	if(q key pressed)
+		Game exits
+	if(t key pressed)
+		Tutorial and credits screen is displayed
+---------------
+Tutorial Screen
+---------------
+While(read keyboard input)
+	if(a key pressed)
+		Welcome screen is displayed
+
 --------------
 Main Game Loop
 --------------
@@ -102,11 +124,13 @@ while(GamePlay)
 		rotate tetromino
 	if(q key pressed)
 		exit game loop
+		display welcome screen
 	if(p key pressed)
 		pause game
 	if(falling timer elapsed)
 		modify tetromino cordinates to one row down
 	draw background
+  draw play gird blocks
 	draw tetromino
 	if(tetromino landed check = true)
 		updated play grid
@@ -120,12 +144,24 @@ while(GamePlay)
 			move down line
 		if(spawn new tetromino = false)
 			end game with a message "Game Over" message
+			if(scores > previous hi score)
+				display message you got higest score
+				record scores in file
+			while (read keyboard input)
+				if(a key pressed)
+					display welcome screen
 	if(cleared lines >= 10)
 		level += 1
 		cleared line = 0
 	
 	if(level > 10)
 		end game with a "You Win!" message
+		if(scores > previous hi score)
+			display message you got higest score
+			record scores in file
+		while (read keyboard input)
+			if(a key pressed)
+				display welcome screen
 	draw level digits
 	draw score digits
 

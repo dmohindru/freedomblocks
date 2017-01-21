@@ -8,6 +8,8 @@ void SpawnNewTetromino();
 void RotateTetromino();
 void MoveTetromino(int direction);
 void LandTetromino();
+int IfTetrominoLanded();
+void DrawTetromino();
     
 
 

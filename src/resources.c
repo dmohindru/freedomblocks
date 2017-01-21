@@ -1,6 +1,7 @@
 #include <SDL/SDL.h>
 #include <SDL/SDL_image.h>
 #include "resources.h"
+#include "gamedefs.h"
 
 
 void LoadGameGraphics()

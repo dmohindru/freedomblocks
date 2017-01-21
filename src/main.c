@@ -7,72 +7,139 @@
 #include "resources.h"
 #include "tetromino.h"
 
-static Sint32 seed = 0;
+static int scores, level;
 
-static void initrandom()
+static void DrawBackground()
 {
-    seed = time(NULL);
+	SDL_Rect src, dest;
+	src.w = background->w;
+	src.h = background->h;
+	src.x = 0;
+	src.y = 0;
+	dest = src;
+	SDL_BlitSurface(background, &src, screen, &dest);
+}
+static void DrawScores()
+{
+	SDL_Rect src, dest;
+	int i, temp_scores, digit;
+	temp_scores = scores;
+  for(i=3;i>=0;i--)
+	{
+		digit = temp_scores % 10;
+    temp_scores /= 10;
+		src.w = FONT_WIDTH;
+		src.h = FONT_HEIGHT;
+		src.x = FONT_STARTX + digit * (FONT_WIDTH + FONT_SPACING);
+		src.y = FONT_STARTY;
+		dest.w = FONT_WIDTH;
+		dest.h = FONT_HEIGHT;
+		dest.x = SCORES_STARTX + i * (FONT_WIDTH + FONT_SPACING);
+		dest.y = SCORES_STARTY;
+		SDL_BlitSurface(gamedata, &src, screen, &dest);
+	}
+}
+static void DrawLevel()
+{
+	SDL_Rect src, dest;
+	int i, temp_level, digit;
+  temp_level = level;
+	for(i=1;i>=0;i--)
+	{
+		digit = temp_level % 10;
+    temp_level /= 10;
+		src.w = FONT_WIDTH;
+		src.h = FONT_HEIGHT;
+		src.x = FONT_STARTX + digit * (FONT_WIDTH + FONT_SPACING);
+		src.y = FONT_STARTY;
+		dest.w = FONT_WIDTH;
+		dest.h = FONT_HEIGHT;
+		dest.x = LEVEL_STARTX + i * (FONT_WIDTH + FONT_SPACING);
+		dest.y = LEVEL_STARTY;
+		SDL_BlitSurface(gamedata, &src, screen, &dest);
+	}
+	
 }
 
-static unsigned int getrandom()
-{
-    Sint32 p1 = 1103515245;
-    Sint32 p2 = 12345;
-    seed = (seed*p1+p2) % 2147483647;
-    return (unsigned)seed/3;
-}
 
-static void playGame()
+static void PlayGame()
 {
 	int quit = 0;
-	Uint8 *keystate;
-	//SDL_Rect src, dest;
-	//int i, j, curr_peice = 0, rotation = 0, random, play = 1, row, col;
+	SDL_Event event;
+	SDL_keysym keysym;
 	while(quit == 0)
-	{
-		SDL_PumpEvents();
-		keystate = SDL_GetKeyState(NULL);
-		if(keystate[SDLK_q])
-			quit = 1;
-		if(keystate[SDLK_UP])
-		{
-			//rotate between different shapes and rotations
-			RotateTetromino();
+  {
+    while(SDL_PollEvent(&event))
+    {
+			switch(event.type)
+			{
+				case SDL_KEYDOWN:
+					keysym = event.key.keysym;
+          switch(keysym.sym)
+					{
+						case SDLK_q:
+							quit = 1;
+							break;
+						case SDLK_LEFT:
+							MoveTetromino(LEFT);
+							printf("Moving tetromino left\n");
+							break;
+						case SDLK_RIGHT:
+							MoveTetromino(RIGHT);
+							printf("Moving tetromino right\n");
+							break;
+						case SDLK_UP:
+							//rotate between different shapes and rotations
+							RotateTetromino();
+							printf("Rotating tetromino\n");
+							break;
+						case SDLK_DOWN:
+							//LandTetromino();
+							printf("Landing tetromino\n");
+							break;
+						//temp logic below
+            case SDLK_n:
+							SpawnNewTetromino();
+							printf("spawning new tetromino\n");
+							break;
+            case SDLK_i: //increment scores and levels
+              level += 1;
+              scores += 51;
+              if(level >= 100)
+                level = 0;
+              if(scores >= 10000)
+                scores = 0;
+              break;
+						default:
+							break;
+					}
+					break;
+        
+        case SDL_QUIT:
+          quit = 1;
+          break;
+          
+				default:
+					break;
+			}
 		}
-		if(keystate[SDLK_LEFT])
-		{
-			MoveTetromino(LEFT);
-			printf("Left key pressed\n");
-		}
-		if(keystate[SDLK_RIGHT])
-		{
-			MoveTetromino(RIGHT);
-			printf("Right key pressed\n");
-		}
-		if(keystate[SDLK_DOWN])
-		{
-			LandTetromino();
-			printf("Down key pressed");
-		}
+	
 		//draw stuff
 		DrawBackground();
 		DrawScores();
 		DrawLevel();
 		DrawTetromino(); //current tetromino
-		DrawTetromino(); //next tetromino
+		//DrawTetromino(); //next tetromino
+		SDL_Flip(screen);
 		
 	}
 }
 
 int main(int argc, char **argv)
 {
-	//SDL_Rect src, dest;
-	//SDL_Event event;
-	//int i, j, curr_peice = 0, rotation = 0, random, play = 1, row, col;
 	//avoid compiler warnings
 	argc++;
 	argv++;
-	//initrandom();
 	if(SDL_Init(SDL_INIT_VIDEO) != 0)
     {
 		printf("Unable to initialise SDL: %s\n", SDL_GetError());
@@ -87,124 +154,18 @@ int main(int argc, char **argv)
 		printf("Unable to set video mode: %s\n", SDL_GetError());
 		exit(EXIT_FAILURE);
 	}
-	
+	//Set window caption
+  SDL_WM_SetCaption("Freedom Blocks", "Dhruv Freedom Blocks");
 	//load game graphics
 	LoadGameGraphics();
+  //initalize scores and level
+  scores = 0;
+  level = 1;
+	//Play game
 	PlayGame();
-	
-	/*while(SDL_WaitEvent(&event) != 0 && play)
-    {
-		SDL_keysym keysym;
-		switch (event.type)
-		{
-			case SDL_KEYDOWN:
-				keysym = event.key.keysym;
-				if(keysym.sym == SDLK_q)
-					play = 0;
-				if(keysym.sym == SDLK_UP)
-				{
-					//rotate between different shapes and rotations
-					rotation++;
-					if(rotation >= TETROMINO_ROTATION)
-					{
-						rotation = 0;
-						curr_peice++;
-						if(curr_peice >= TETROMINO_NUM)
-							curr_peice = 0;
-					}
-				}
-				break;
-			case SDL_QUIT:
-				play = 0;
-		}
-		
-		
-		
-		src.w = background->w;
-		src.h = background->h;
-		src.x = 0;
-		src.y = 0;
-		dest = src;
-		SDL_BlitSurface(background, &src, screen, &dest);
-		//First test digits of scores and level
-		for(i=0;i<4;i++)
-		{
-			random = getrandom() % 10;
-			src.w = FONT_WIDTH;
-			src.h = FONT_HEIGHT;
-			src.x = FONT_STARTX + random * (FONT_WIDTH + FONT_SPACING);
-			src.y = FONT_STARTY;
-			dest.w = FONT_WIDTH;
-			dest.h = FONT_HEIGHT;
-			dest.x = SCORES_STARTX + i * (FONT_WIDTH + FONT_SPACING);
-			dest.y = SCORES_STARTY;
-			SDL_BlitSurface(gamedata, &src, screen, &dest);
-		}
-		for(i=0;i<2;i++)
-		{
-			random = getrandom() % 10;
-			src.w = FONT_WIDTH;
-			src.h = FONT_HEIGHT;
-			src.x = FONT_STARTX + random * (FONT_WIDTH + FONT_SPACING);
-			src.y = FONT_STARTY;
-			dest.w = FONT_WIDTH;
-			dest.h = FONT_HEIGHT;
-			dest.x = LEVEL_STARTX + i * (FONT_WIDTH + FONT_SPACING);
-			dest.y = LEVEL_STARTY;
-			SDL_BlitSurface(gamedata, &src, screen, &dest);
-		}
-		//draw current tetromino shape
-		random = getrandom() % NUM_SQUARE;
-		row = 5;
-		src.w = SQUARE_WIDTH;
-		src.h = SQUARE_WIDTH;
-		src.x = SQUARE_STARTX + random * (SQUARE_WIDTH + SQUARE_SPACING);
-		src.y = SQUARE_STARTY;
-		dest.w = SQUARE_WIDTH;
-		dest.h = SQUARE_WIDTH;
-		for(i=0;i<TETROMINO_GRID;i++)
-		{
-			col = 5;
-			for(j=0;j<TETROMINO_GRID;j++)
-			{
-				if(tetrominos[curr_peice][rotation][i][j])
-				{
-					dest.x = PLAY_GRID_STARTX + col * (SQUARE_WIDTH + TETROMINO_SPACING);
-					dest.y = PLAY_GRID_STARTY + row * (SQUARE_WIDTH + TETROMINO_SPACING);
-					SDL_BlitSurface(gamedata, &src, screen, &dest);
-					//printf("drawing tetrominos at i: %d, j: %d\n", i, j);
-								
-				}
-				col++;
-			}
-			row++;
-		}
-		/*for(i=0;i<PLAY_GRID_ROW;i++)
-		{
-			random = getrandom() % 2;
-			if(random)
-			{
-				for(j=0;j<PLAY_GRID_COL;j++)
-				{
-					random = getrandom() % 4;
-					src.w = SQUARE_WIDTH;
-					src.h = SQUARE_WIDTH;
-					src.x = SQUARE_STARTX + random * (SQUARE_WIDTH + SQUARE_SPACING);
-					src.y = SQUARE_STARTY;
-					dest.w = SQUARE_WIDTH;
-					dest.h = SQUARE_WIDTH;
-					dest.x = PLAY_GRID_STARTX + j * (SQUARE_WIDTH + TETROMINO_SPACING);
-					dest.y = PLAY_GRID_STARTY + i * (SQUARE_WIDTH + TETROMINO_SPACING);
-					SDL_BlitSurface(gamedata, &src, screen, &dest);
-					
-				}
-			}
-		}*/
-		
-		//SDL_UpdateRect(screen, 0, 0, 0, 0);
-	/*	SDL_Flip(screen);
-	}*/
+	//Free game data
 	FreeGameGraphics();
 	
 	return 0;
 }
+

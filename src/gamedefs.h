@@ -1,6 +1,11 @@
 #ifndef GAMEDEFS_H
 #define GAMEDEFS_H
 
+SDL_Surface *screen; //Main game screen
+SDL_Surface *background; //Game background surface
+SDL_Surface *gamedata; //Game graphics data surface
+SDL_Surface *temp; //temp surface storing game data
+
 //define various games constants 
 #define GAME_WIDTH			800 //Width of game background
 #define GAME_HEIGHT			600 //Height of game background
@@ -40,9 +45,12 @@
 
 #define TETROMINO_GRID      4 //size of grid to represent tetromino
 #define TETROMINO_ROTATION  4 //number of rotation in tetrominos
-#define TETROMINO_NUM       5 //number of tetrominos in game
+#define TETROMINO_NUM       6 //number of tetrominos in game
 
 #define LEFT				0 //moving tetromino left
 #define RIGHT				1 //moving tetromino right
+
+#define FALSE				0 //basic stuff
+#define TRUE				1 //basic stuff
 
 #endif
