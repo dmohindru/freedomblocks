@@ -87,4 +87,89 @@ We will implement games in following phases
 
 Game Logic
 ----------
- 
+--------------
+Main Game Loop
+--------------
+while(GamePlay)
+	read keyboard input
+	if(left key pressed)
+		modify tetromino cordinates to left
+	if(right key pressed)
+		modify tetromino cordinates to right
+	if(down key pressed)
+		land tetromino
+	if(up key pressed)
+		rotate tetromino
+	if(q key pressed)
+		exit game loop
+	if(p key pressed)
+		pause game
+	if(falling timer elapsed)
+		modify tetromino cordinates to one row down
+	draw background
+	draw tetromino
+	if(tetromino landed check = true)
+		updated play grid
+		while(more lines to be cleared)
+			num = check num of line to be cleared
+			if(num = 0)
+				break out of this loop
+			cleared lines += num
+			scores += num * bonus factor
+			increment bonus factor
+			move down line
+		if(spawn new tetromino = false)
+			end game with a message "Game Over" message
+	if(cleared lines >= 10)
+		level += 1
+		cleared line = 0
+	
+	if(level > 10)
+		end game with a "You Win!" message
+	draw level digits
+	draw score digits
+
+-----------------------------------------
+modify tetromino cordinates to left/right
+-----------------------------------------
+calculate new potential cordinates (left/right)
+if(new cordinates are out of bound in game grid) or
+  (new cordinates in play grid is already taken)
+	return
+else
+	modify tetromino cordinates to left/right
+	
+----------------
+rotate tetromino
+----------------
+calculate new potential cordinate/position of rotated tetromino
+if(new potential cordinate are out of bound in game grid)
+	modify new potential cordinate/position accordlingly
+if(new potential cordinate are taken in grid)
+	return
+current cordinate/position = potential cordinate/position
+
+--------------
+land tetromino
+--------------
+potential row of tetromino = current tetromino row + 1
+while(tetromino can fall = true)
+	if(potential cordinate taken in grid)
+		tetromino can fall = false
+	else
+		current tetromino row = potential tetromino row
+
+-----------------------
+tetromion landed check
+-----------------------
+new potential tetromino row = current tetromino row + 1
+if(potential cordinate taken in grid)
+	return true
+else
+	return false
+
+---------------
+move down lines
+---------------
+	
+
