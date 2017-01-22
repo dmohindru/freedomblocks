@@ -8,8 +8,6 @@
 #define COLORKEY_GREEN  0 //Color key green component
 #define COLORKEY_BLUE   0 //Color key blue component
 
-
-
 void LoadGameGraphics();
 void FreeGameGraphics();
 

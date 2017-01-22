@@ -15,7 +15,7 @@ main.o:	main.c gamedefs.h tetromino.h
 resources.o: resources.c resources.h
 	gcc $(CFLAGS) -c resources.c
 
-tetromino.o: tetromino.c tetromino.h
+tetromino.o: tetromino.c tetromino.h gamedefs.h
 	gcc $(CFLAGS) -c tetromino.c
 	
 clean:

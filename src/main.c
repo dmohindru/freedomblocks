@@ -2,7 +2,6 @@
 #include <SDL/SDL_image.h> //think of removing it from here
 #include <stdio.h>
 #include <stdlib.h>
-#include <time.h>
 #include "gamedefs.h"
 #include "resources.h"
 #include "tetromino.h"
@@ -61,12 +60,13 @@ static void DrawLevel()
 	
 }
 
-
 static void PlayGame()
 {
 	int quit = 0;
 	SDL_Event event;
 	SDL_keysym keysym;
+  InitalizePlayGrid();
+  SpawnNewTetromino();
 	while(quit == 0)
   {
     while(SDL_PollEvent(&event))
@@ -95,7 +95,8 @@ static void PlayGame()
 							break;
 						case SDLK_DOWN:
 							//LandTetromino();
-							printf("Landing tetromino\n");
+              MoveTetrominoDown();
+							printf("Moving tetromino down\n");
 							break;
 						//temp logic below
             case SDLK_n:
@@ -126,11 +127,20 @@ static void PlayGame()
 	
 		//draw stuff
 		DrawBackground();
-		DrawScores();
+		DrawGridBlocks();
+    DrawTetromino(); //current tetromino
+    if(IfTetrominoLanded())
+    {
+      UpdatePlayGrid();
+      SpawnNewTetromino();
+      printf("Tetromino landed\n");
+    }
+    
+    DrawScores();
 		DrawLevel();
-		DrawTetromino(); //current tetromino
+		
 		//DrawTetromino(); //next tetromino
-		SDL_Flip(screen);
+    SDL_Flip(screen);
 		
 	}
 }

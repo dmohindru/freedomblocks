@@ -10,6 +10,9 @@ void MoveTetromino(int direction);
 void LandTetromino();
 int IfTetrominoLanded();
 void DrawTetromino();
+void DrawGridBlocks();
+void UpdatePlayGrid();
+void MoveTetrominoDown();
     
 
 

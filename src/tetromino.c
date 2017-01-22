@@ -108,7 +108,7 @@ static short tetrominos[TETROMINO_NUM][TETROMINO_ROTATION][TETROMINO_GRID][TETRO
            {0,1,1,0},
            {0,0,1,0}}}};
 
-static short tetromino_play_grid[PLAY_GRID_ROW][PLAY_GRID_COL];
+static short play_grid[PLAY_GRID_ROW][PLAY_GRID_COL];
 static int cur_row, cur_col, cur_tetromino, cur_rotation, next_tetromino, cur_square;
 static Sint32 seed = 0;
 static void initrandom()
@@ -158,7 +158,7 @@ void InitalizePlayGrid()
   int i,j;
   for(i=0;i<PLAY_GRID_ROW;i++)
     for(j=0;j<PLAY_GRID_COL;j++)
-      tetromino_play_grid[i][j] = 0;
+      play_grid[i][j] = -1;
   initrandom();
   cur_tetromino = 0;
   cur_rotation = 0;
@@ -168,8 +168,8 @@ void SpawnNewTetromino()
   cur_tetromino = getrandom() % TETROMINO_NUM; //tetromin index
   cur_square = getrandom() % NUM_SQUARE;  //square index in data bitmap
   cur_rotation = 0; //rotation alway start at 0
-  cur_row = 5; //needs more logic here
-  cur_col = 5;
+  cur_row = -1; //needs more logic here
+  cur_col = 4;
 }
 void RotateTetromino()
 {
@@ -187,4 +187,59 @@ void MoveTetromino(int direction)
 }
 void LandTetromino()
 {
+}
+void DrawGridBlocks()
+{
+  int i, j;
+  SDL_Rect src, dest;
+  src.w = SQUARE_WIDTH;
+  src.h = SQUARE_WIDTH;
+  dest.w = SQUARE_WIDTH;
+  dest.h = SQUARE_WIDTH;
+  for(i=0;i<PLAY_GRID_ROW;i++)
+  {
+    for(j=0;j<PLAY_GRID_COL;j++)
+    {
+      if(play_grid[i][j] >= 0)
+      {
+        src.x = SQUARE_STARTX + play_grid[i][j] * (SQUARE_WIDTH + SQUARE_SPACING);
+        src.y = SQUARE_STARTY;
+        dest.x = PLAY_GRID_STARTX + j * (SQUARE_WIDTH + TETROMINO_SPACING);
+        dest.y = PLAY_GRID_STARTY + i * (SQUARE_WIDTH + TETROMINO_SPACING);
+        SDL_BlitSurface(gamedata, &src, screen, &dest);
+      }
+    }
+  }
+}
+int IfTetrominoLanded()
+{
+  int new_row, i, j;
+  new_row = cur_row + TETROMINO_GRID; //start from bottom row
+  //start from lowest row in tetromino grid
+  for(i=0;i<TETROMINO_GRID;i++)
+  {
+    for(j=0;j<TETROMINO_GRID;j++)
+    {
+      if(tetrominos[cur_tetromino][cur_rotation][TETROMINO_GRID-1-i][j])
+      {
+        if(new_row-i >= PLAY_GRID_ROW) //If tetromino reached to bottom row
+          return TRUE;
+        if(play_grid[new_row-i][cur_col+j] >= 0)
+          return TRUE;
+      }
+    }
+  }
+  return FALSE;
+}
+void UpdatePlayGrid()
+{
+  int i,j;
+  for(i=0;i<TETROMINO_GRID;i++)
+    for(j=0;j<TETROMINO_GRID;j++)
+      if(tetrominos[cur_tetromino][cur_rotation][i][j])
+        play_grid[cur_row+i][cur_col+j] = cur_square;
+}
+void MoveTetrominoDown()
+{
+  cur_row++;
 }
