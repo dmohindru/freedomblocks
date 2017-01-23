@@ -169,7 +169,7 @@ void SpawnNewTetromino()
   cur_square = getrandom() % NUM_SQUARE;  //square index in data bitmap
   cur_rotation = 0; //rotation alway start at 0
   cur_row = -1; //needs more logic here
-  cur_col = 4;
+  cur_col = 3;
 }
 void RotateTetromino()
 {
@@ -180,10 +180,28 @@ void RotateTetromino()
 void MoveTetromino(int direction)
 {
   //need more login and error checking here
+  int new_col, i, j;
   if(direction == LEFT)
-    cur_col--;
+    new_col = cur_col - 1;
   else if(direction == RIGHT)
-    cur_col++;
+    new_col = cur_col + 1;
+  for(i=0;i<TETROMINO_GRID;i++)
+  {
+    for(j=0;j<TETROMINO_GRID;j++)
+    {
+      if(tetrominos[cur_tetromino][cur_rotation][i][j])
+      {
+        if(new_col+j < 0 || new_col+j >= PLAY_GRID_COL)
+          return; //If tetromino reached left right bound
+        //if(new_col+j >= PLAY_GRID_COL)
+        //  return;
+        if(play_grid[cur_row+i][new_col+j] >= 0) //If next grid place in taken
+          return;
+      }
+    }
+  }
+  cur_col = new_col;  
+  
 }
 void LandTetromino()
 {
@@ -224,7 +242,7 @@ int IfTetrominoLanded()
       {
         if(new_row-i >= PLAY_GRID_ROW) //If tetromino reached to bottom row
           return TRUE;
-        if(play_grid[new_row-i][cur_col+j] >= 0)
+        if(play_grid[new_row-i][cur_col+j] >= 0) //If next grid place in taken
           return TRUE;
       }
     }
