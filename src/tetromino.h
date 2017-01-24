@@ -4,7 +4,7 @@
 
 
 void InitalizePlayGrid();
-void SpawnNewTetromino();
+int SpawnNewTetromino();
 void RotateTetromino();
 void MoveTetromino(int direction);
 void LandTetromino();
@@ -13,6 +13,7 @@ void DrawTetromino();
 void DrawGridBlocks();
 void UpdatePlayGrid();
 void MoveTetrominoDown();
+void DrawNextTetromino();
     
 
 

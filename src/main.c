@@ -129,10 +129,15 @@ static void PlayGame()
 		DrawBackground();
 		DrawGridBlocks();
     DrawTetromino(); //current tetromino
+    DrawNextTetromino();
     if(IfTetrominoLanded())
     {
       UpdatePlayGrid();
-      SpawnNewTetromino();
+      if(!SpawnNewTetromino())
+      {
+        printf("Game over!\n");
+        quit = 1;
+      }
       printf("Tetromino landed\n");
     }
     

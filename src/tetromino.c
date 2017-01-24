@@ -109,7 +109,7 @@ static short tetrominos[TETROMINO_NUM][TETROMINO_ROTATION][TETROMINO_GRID][TETRO
            {0,0,1,0}}}};
 
 static short play_grid[PLAY_GRID_ROW][PLAY_GRID_COL];
-static int cur_row, cur_col, cur_tetromino, cur_rotation, next_tetromino, cur_square;
+static int cur_row, cur_col, cur_tetromino, cur_rotation, next_tetromino, cur_square, next_square;
 static Sint32 seed = 0;
 static void initrandom()
 {
@@ -153,6 +153,34 @@ void DrawTetromino()
     row++;
   }
 }
+
+void DrawNextTetromino()
+{
+  int i, j, col, row;
+  SDL_Rect src, dest;
+  src.w = SQUARE_WIDTH;
+  src.h = SQUARE_WIDTH;
+  src.x = SQUARE_STARTX + next_square * (SQUARE_WIDTH + SQUARE_SPACING);
+  src.y = SQUARE_STARTY;
+  dest.w = SQUARE_WIDTH;
+  dest.h = SQUARE_WIDTH;
+  row = 0;
+  for(i=0;i<TETROMINO_GRID;i++)
+  {
+    col = PLAY_GRID_COL + 1;
+    for(j=0;j<TETROMINO_GRID;j++)
+    {
+      if(tetrominos[next_tetromino][0][i][j])
+      {
+        dest.x = PLAY_GRID_STARTX + col * (SQUARE_WIDTH + TETROMINO_SPACING);
+        dest.y = PLAY_GRID_STARTY + row * (SQUARE_WIDTH + TETROMINO_SPACING);
+        SDL_BlitSurface(gamedata, &src, screen, &dest);
+      }
+      col++;
+    }
+    row++;
+  }
+}
 void InitalizePlayGrid()
 {
   int i,j;
@@ -162,20 +190,62 @@ void InitalizePlayGrid()
   initrandom();
   cur_tetromino = 0;
   cur_rotation = 0;
+  next_tetromino = getrandom() % TETROMINO_NUM; //next tetromin index
+  next_square = getrandom() % NUM_SQUARE;  //square index in data bitmap
 }
-void SpawnNewTetromino()
+int SpawnNewTetromino()
 {
-  cur_tetromino = getrandom() % TETROMINO_NUM; //tetromin index
-  cur_square = getrandom() % NUM_SQUARE;  //square index in data bitmap
+  int i, j;
+  cur_tetromino = next_tetromino;
+  cur_square = next_square;
+  next_tetromino = getrandom() % TETROMINO_NUM; //tetromin index
+  next_square = getrandom() % NUM_SQUARE;  //square index in data bitmap
   cur_rotation = 0; //rotation alway start at 0
-  cur_row = -1; //needs more logic here
+  cur_row = -1;
   cur_col = 3;
+  for(i=0;i<TETROMINO_GRID;i++) //check first row for presence of square
+  {  
+    if(tetrominos[cur_tetromino][cur_rotation][0][i])
+    {
+      cur_row = 0;
+      break;
+    }
+  }
+  //check if new tetrominos space is already taken
+  for(i=0;i<TETROMINO_GRID;i++)
+    for(j=0;j<TETROMINO_GRID;j++)
+      if(tetrominos[cur_tetromino][cur_rotation][i][j])
+        if(play_grid[cur_row+i][cur_col+j] >= 0) //If next grid place in taken
+          return FALSE;
+  return TRUE;
 }
 void RotateTetromino()
 {
-  cur_rotation++;
-  if(cur_rotation >= TETROMINO_ROTATION)
-    cur_rotation = 0;
+  int new_rotation, new_col, i, j;
+  new_rotation = cur_rotation + 1;
+  new_col = cur_col;
+  //cur_rotation++;
+  if(new_rotation >= TETROMINO_ROTATION)
+    new_rotation = 0;
+  //first check for out of bound
+  for(i=0;i<TETROMINO_GRID;i++)
+  {
+    for(j=0;j<TETROMINO_GRID;j++)
+    {
+      if(tetrominos[cur_tetromino][new_rotation][i][j])
+      {
+        if(new_col+j < 0) //If tetromino crossed left bound
+          new_col++; 
+        if(new_col+j >=PLAY_GRID_COL) //If tetromino crossed right bound
+          new_col--;
+        if(play_grid[cur_row+i][new_col+j] >= 0) //If next grid place in taken
+          return;
+      }
+    }
+  }
+  cur_col = new_col;
+  cur_rotation = new_rotation;
+  
 }
 void MoveTetromino(int direction)
 {
@@ -193,8 +263,6 @@ void MoveTetromino(int direction)
       {
         if(new_col+j < 0 || new_col+j >= PLAY_GRID_COL)
           return; //If tetromino reached left right bound
-        //if(new_col+j >= PLAY_GRID_COL)
-        //  return;
         if(play_grid[cur_row+i][new_col+j] >= 0) //If next grid place in taken
           return;
       }
