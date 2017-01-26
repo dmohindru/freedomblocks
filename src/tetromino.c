@@ -106,7 +106,23 @@ static short tetrominos[TETROMINO_NUM][TETROMINO_ROTATION][TETROMINO_GRID][TETRO
            {{0,0,0,0},
            {0,1,0,0},
            {0,1,1,0},
-           {0,0,1,0}}}};
+           {0,0,1,0}}},
+           {{{0,0,0,0}, // _|
+           {0,0,1,0},
+           {0,0,1,0},
+           {0,1,1,0}}, 
+           {{0,0,0,0},
+           {1,0,0,0},
+           {1,1,1,0},
+           {0,0,0,0}},
+           {{0,0,0,0},
+           {0,1,1,0},
+           {0,1,0,0},
+           {0,1,0,0}},
+           {{0,0,0,0},
+           {1,1,1,0},
+           {0,0,1,0},
+           {0,0,0,0}}}};
 
 static short play_grid[PLAY_GRID_ROW][PLAY_GRID_COL];
 static int cur_row, cur_col, cur_tetromino, cur_rotation, next_tetromino, cur_square, next_square;
@@ -273,6 +289,7 @@ void MoveTetromino(int direction)
 }
 void LandTetromino()
 {
+
 }
 void DrawGridBlocks()
 {
@@ -324,6 +341,62 @@ void UpdatePlayGrid()
     for(j=0;j<TETROMINO_GRID;j++)
       if(tetrominos[cur_tetromino][cur_rotation][i][j])
         play_grid[cur_row+i][cur_col+j] = cur_square;
+}
+
+int LinesCleared()
+{
+  int lines[PLAY_GRID_ROW], num_lines = 0, i, j, k, filled, empty, line_no;
+  for(i=0;i<PLAY_GRID_ROW;i++) //initalize cleared line status array
+    lines[i] = FALSE;
+  //first pass to check lines to be cleared
+  for(i=0;i<PLAY_GRID_ROW;i++)
+  {
+    filled = TRUE;
+    empty = 0;
+    for(j=0;j<PLAY_GRID_COL;j++)
+    {
+      if(play_grid[PLAY_GRID_ROW-1-i][j] < 0)
+      {
+        filled = FALSE;
+        empty++;
+      }
+    }
+    if(filled) //check for filed line
+    {
+      lines[PLAY_GRID_ROW-1-i] = TRUE;
+      num_lines++;
+    }
+    else if(empty == PLAY_GRID_COL) //whole line was empty stop checking
+      break;                        //any further
+  }
+  //second pass to clear lines
+  for(i=0;i<num_lines;i++) //loop only num_lines times
+  {
+    line_no = PLAY_GRID_ROW-1;
+    while(!lines[line_no])
+      line_no--;
+    //now line_no holds index to line to be cleared
+    for(k=line_no;k>=0;k--)
+    {
+      for(j=0;j<PLAY_GRID_COL;j++)
+      {
+        if(k == 0) //last line
+          play_grid[k][j] = -1;
+        else  
+          play_grid[k][j] = play_grid[k-1][j];
+      }
+    }
+    //update cleared lines array also
+    for(j=line_no;j>=0;j--)
+    {
+      if(j == 0)
+        lines[j] = FALSE;
+      else
+        lines[j] = lines[j-1];
+    }
+  }
+  
+  return num_lines;
 }
 void MoveTetrominoDown()
 {

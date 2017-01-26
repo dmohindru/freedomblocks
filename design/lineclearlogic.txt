@@ -1,0 +1,54 @@
+If(TetrominoLanded = true)
+	UpdatePlayGrid
+	line_cleared = 0
+	score_factor = 10
+	while(line_cleared = ClearedLines())
+		num_of_lines += line_cleared
+		if(num_of_lines >= 10)
+			level++
+			num_of_lines = num_of_lines - 10
+		if(level >= 10)
+			print "You win"
+		score = score + line_cleared * score_factor
+		score_factor += 5
+		If(spawn new tetromino = false)
+			print "Game Over"
+
+
+
+ClearedLines
+	int lines[playGridRows]
+	num_line = 0;
+  for(i=0;i<playGridRow;i++)
+    lines[i] = 0
+	//first pass to check lines to be cleared
+	for(i=0;i<playGridRows;i++)
+		filled = true
+		empty = 0
+		for(j=0;j<playGridCol;j++)
+			if(playGrid[i][j] = 0)
+				filled = false
+				empty++
+		if(filled = true)
+			lines[i] = true
+			num_line++
+		else if(empty = playGirdCol - 1)
+			break
+	//now loop num_line to clear lines
+	
+  for(i=0;i<num_line;i++)
+    line_no = 0
+    while(lines[line_no] = 0)
+      line_no++
+    //line_no index to line to be cleared
+    for(j=0;j<playGirdCols-1;j++)
+      playGrid[line_no][j] = playGrid[line_no+1][j]
+    //Update cleared lines array also
+    for(j=line_no;j<playGridRows-1;j++)
+      lines[j] = lines[j+1]
+    return num_lines
+      
+	
+		
+		
+			

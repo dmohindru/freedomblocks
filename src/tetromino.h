@@ -1,8 +1,6 @@
 #ifndef TETROMINO_H
 #define TETROMINO_H
 
-
-
 void InitalizePlayGrid();
 int SpawnNewTetromino();
 void RotateTetromino();
@@ -14,10 +12,7 @@ void DrawGridBlocks();
 void UpdatePlayGrid();
 void MoveTetrominoDown();
 void DrawNextTetromino();
+int LinesCleared();
     
-
-
-
-
 #endif
 

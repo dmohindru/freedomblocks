@@ -62,7 +62,7 @@ static void DrawLevel()
 
 static void PlayGame()
 {
-	int quit = 0;
+	int quit = 0, lines_cleared, level_lines = 0, score_factor;
 	SDL_Event event;
 	SDL_keysym keysym;
   InitalizePlayGrid();
@@ -82,21 +82,21 @@ static void PlayGame()
 							break;
 						case SDLK_LEFT:
 							MoveTetromino(LEFT);
-							printf("Moving tetromino left\n");
+							//printf("Moving tetromino left\n");
 							break;
 						case SDLK_RIGHT:
 							MoveTetromino(RIGHT);
-							printf("Moving tetromino right\n");
+							//printf("Moving tetromino right\n");
 							break;
 						case SDLK_UP:
 							//rotate between different shapes and rotations
 							RotateTetromino();
-							printf("Rotating tetromino\n");
+							//printf("Rotating tetromino\n");
 							break;
 						case SDLK_DOWN:
 							//LandTetromino();
               MoveTetrominoDown();
-							printf("Moving tetromino down\n");
+							//printf("Moving tetromino down\n");
 							break;
 						//temp logic below
             case SDLK_n:
@@ -133,14 +133,33 @@ static void PlayGame()
     if(IfTetrominoLanded())
     {
       UpdatePlayGrid();
+      score_factor = 10;
+      //check for line cleared
+      while((lines_cleared = LinesCleared()))
+      {
+          printf("lines_cleared: %d\n", lines_cleared);
+          level_lines += lines_cleared;
+          printf("level_lines: %d\n", level_lines);
+          if(level_lines >= 10)
+          {
+            level++;
+            level_lines = level_lines - 10;
+          }
+          if(level >= 10)
+            printf("You win\n");
+          scores += lines_cleared * score_factor;
+          score_factor += 5;
+        
+      }
       if(!SpawnNewTetromino())
       {
         printf("Game over!\n");
         quit = 1;
       }
-      printf("Tetromino landed\n");
+     // else
+     //   printf("Tetromino landed\n");
     }
-    
+   
     DrawScores();
 		DrawLevel();
 		
