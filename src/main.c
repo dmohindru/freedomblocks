@@ -62,11 +62,15 @@ static void DrawLevel()
 
 static void PlayGame()
 {
-	int quit = 0, lines_cleared, level_lines = 0, score_factor;
-	SDL_Event event;
+	int quit = 0, lines_cleared, level_lines = 0, 
+      score_factor, timer_running;
+	unsigned int previous_time, current_time, delay = 1000;
+  SDL_Event event;
 	SDL_keysym keysym;
   InitalizePlayGrid();
   SpawnNewTetromino();
+  timer_running = TRUE;
+  previous_time = SDL_GetTicks(); 
 	while(quit == 0)
   {
     while(SDL_PollEvent(&event))
@@ -81,29 +85,42 @@ static void PlayGame()
 							quit = 1;
 							break;
 						case SDLK_LEFT:
-							MoveTetromino(LEFT);
+							if(timer_running)
+                MoveTetromino(LEFT);
 							//printf("Moving tetromino left\n");
 							break;
 						case SDLK_RIGHT:
-							MoveTetromino(RIGHT);
+              if(timer_running)
+                MoveTetromino(RIGHT);
 							//printf("Moving tetromino right\n");
 							break;
 						case SDLK_UP:
 							//rotate between different shapes and rotations
-							RotateTetromino();
+							if(timer_running)
+                RotateTetromino();
 							//printf("Rotating tetromino\n");
 							break;
 						case SDLK_DOWN:
-							//LandTetromino();
-              MoveTetrominoDown();
+							if(timer_running)
+                LandTetromino();
+              //MoveTetrominoDown();
 							//printf("Moving tetromino down\n");
 							break;
 						//temp logic below
-            case SDLK_n:
-							SpawnNewTetromino();
-							printf("spawning new tetromino\n");
+            case SDLK_p:
+							if(timer_running)
+              {
+                timer_running = FALSE;
+              }
+              else
+              {
+                timer_running = TRUE;
+                previous_time = SDL_GetTicks();
+              }
+              //SpawnNewTetromino();
+							//printf("spawning new tetromino\n");
 							break;
-            case SDLK_i: //increment scores and levels
+            case SDLK_a: //increment scores and levels
               level += 1;
               scores += 51;
               if(level >= 100)
@@ -124,6 +141,15 @@ static void PlayGame()
 					break;
 			}
 		}
+    if(timer_running)
+    {
+      current_time = SDL_GetTicks();
+      if(current_time - previous_time >= delay)
+      {
+        MoveTetrominoDown();
+        previous_time = current_time;
+      }
+    }
 	
 		//draw stuff
 		DrawBackground();
@@ -144,6 +170,7 @@ static void PlayGame()
           {
             level++;
             level_lines = level_lines - 10;
+            delay -= NEXT_LEVEL_TIME;
           }
           if(level >= 10)
             printf("You win\n");
@@ -162,7 +189,10 @@ static void PlayGame()
    
     DrawScores();
 		DrawLevel();
-		
+		if(!timer_running)
+    {
+      //SDL BILT Paused bitmap
+    }
 		//DrawTetromino(); //next tetromino
     SDL_Flip(screen);
 		

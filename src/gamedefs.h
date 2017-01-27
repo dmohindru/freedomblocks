@@ -54,5 +54,6 @@ SDL_Surface *temp; //temp surface storing game data
 #define TRUE				1 //basic stuff
 
 #define NEXT_LEVEL_LINES	10 //Number of lines for next level
+#define NEXT_LEVEL_TIME		200 //Time in milliseconds for next level difficulty
 
 #endif

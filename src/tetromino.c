@@ -289,7 +289,8 @@ void MoveTetromino(int direction)
 }
 void LandTetromino()
 {
-
+  while(!IfTetrominoLanded())
+    MoveTetrominoDown();
 }
 void DrawGridBlocks()
 {
