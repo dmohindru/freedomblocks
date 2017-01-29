@@ -16,21 +16,39 @@ Graphics
 9. Data Related to graphics rendering can change as needed
 	Squres Widht: 30px
 	Square Spacing: 2px
-	Total Width of Play Grid: 318px
+	
+  Total Width of Play Grid: 318px
 	Total Height of Play Gird: 510px
-	Start X of Play Grid: 300
+	
+  Start X of Play Grid: 300
 	Start Y of Play Grid: 60
 	Font Width of a game: 30px
 	Font Height of a game: 50px
 	Spacing between digits: 5px
-	Start X of Scores Number: 50
+	
+  Start X of Scores Number: 50
 	Start Y of Scores Number: 150
 	Total digits in score: 4
-	Start X of Lever Number: 85
+	
+  Start X of Lever Number: 85
 	Start Y of Lever Number: 450
-	Font Name: Sans (Normal - Inkspace)
-	Digits and Square Data File
-	Total Width of Data file: 355px
+  Total digits in level: 2
+  
+  Start X for "You Got Hi Score": 360
+  Start Y for "You Got Hi Score": 210
+  
+  Start X for "Game Over/You Win": 400 
+  Start Y for "Game Over/You Win": 250
+  
+  Start X for "Press A": 405
+  Start Y for "Press A": 290
+ 
+
+  Font Name: Sans (Normal - Inkspace)
+	---------------------
+  DATA BITMAP FILE
+  ---------------------
+  Total Width of Data file: 355px
 	Total Height of Data file: 110px 
 	Start X for Squares: 5
 	Start Y for Squares: 10
@@ -38,6 +56,60 @@ Graphics
 	Start X for Digits: 5
 	Start Y for Digits: 50
 	Spacing between digits: 5px
+  Background color (black) for color key: 0X000000
+  -------------------
+  WELCOME SCREEN
+  -------------------
+  Start X for "Press A to continue": 170
+  Start Y for "Press A to continue": 400
+  Start X for "Press B for tutorial": 275
+  Start Y for "Press B for tutorial": 550
+  --------------------
+  TUTORIAL SCREEN
+  --------------------
+  Start X for "Press A to continue": 170
+  Start Y for "Press A to continue": 530
+  --------------------
+  MESSAGE SCREEN
+  --------------------
+  Start X for "Press A to continue": 5
+  Start Y for "Press A to continue": 5
+  Width of "Press A to continue": 485 px
+  Heigh of "Press A to continue": 50 px
+  
+  Start X for "Confirm Quit": 5
+  Start Y for "Confirm Quit": 60
+  Width of "Confirm Quit": 170 px
+  Heigh of "Confirm Quit": 70 px
+  
+  Start X for "Press B for tutorial": 5
+  Start Y for "Press B for tutorial": 60
+  Width of "Press B for tutorial": 250 px
+  Heigh of "Press B for tutorial": 135 px
+  
+  Start X for "You Win": 5
+  Start Y for "You Win": 165
+  Width of "You Win": 110 px
+  Heigh of "You Win": 30 px
+  
+  Start X for "Game Over": 5
+  Start Y for "Game Over": 200
+  Width of "Game Over": 135 px
+  Heigh of "Game Over": 30 px
+  
+  Start X for "You got Hi Score": 5
+  Start Y for "You got Hi Score": 235
+  Width of "You got Hi Score": 210 px
+  Heigh of "You got Hi Score": 30 px
+  
+  Start X for "Press A": 5
+  Start Y for "Press A": 270
+  Width of "Press A": 110 px
+  Heigh of "Press A": 30 px
+  
+  Background color (blue) for color key: 0X0000FF
+  
+  
 
 Game Play
 ---------
