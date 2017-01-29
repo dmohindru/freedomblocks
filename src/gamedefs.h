@@ -2,6 +2,7 @@
 #define GAMEDEFS_H
 
 #include <SDL/SDL.h>
+#include <SDL/SDL_image.h>
 
 SDL_Surface *screen; //Main game screen
 SDL_Surface *background; //Game background surface
@@ -92,36 +93,41 @@ SDL_Surface *temp; //temp surface storing game data
 //Graphics placement in message bitmap
 #define MESS_PRESSA_BIG_STARTX 	5 //Start X for Press A Big message
 #define MESS_PRESSA_BIG_STARTY 	5 //Start Y for Press A Big message
-#define MESS_PRESSA_BIG_WIDTH	485 //Width of Press A Big message
-#define MESS_PRESSA_BIG_HEIGHT	50 //Height of Press A Big message
+#define MESS_PRESSA_BIG_WIDTH	240 //Width of Press A Big message
+#define MESS_PRESSA_BIG_HEIGHT	25 //Height of Press A Big message
+
+#define MESS_PRESSB_STARTX 		5 //Start X for Press B message
+#define MESS_PRESSB_STARTY 		35 //Start Y for Press B message
+#define MESS_PRESSB_WIDTH		250 //Width of Press B message
+#define MESS_PRESSB_HEIGHT		25 //Height of Press B message
 
 #define MESS_QUIT_STARTX 		5 //Start X for Confirm Quit message
-#define MESS_QUIT_STARTY 		60 //Start Y for Confirm Quit message
+#define MESS_QUIT_STARTY 		65 //Start Y for Confirm Quit message
 #define MESS_QUIT_WIDTH			170 //Width of Confirm Quit message
 #define MESS_QUIT_HEIGHT		70 //Height of Confirm Quit message
 
-#define MESS_PRESSB_STARTX 		5 //Start X for Confirm Quit message
-#define MESS_PRESSB_STARTY 		60 //Start Y for Confirm Quit message
-#define MESS_PRESSB_WIDTH		170 //Width of Confirm Quit message
-#define MESS_PRESSB_HEIGHT		70 //Height of Confirm Quit message
-
 #define MESS_YOUWIN_STARTX 		5 //Start X for You Win message
-#define MESS_YOUWIN_STARTY 		165 //Start Y for You Win message
+#define MESS_YOUWIN_STARTY 		140 //Start Y for You Win message
 #define MESS_YOUWIN_WIDTH		110 //Width of You Win message
 #define MESS_YOUWIN_HEIGHT		30 //Height of You Win message
 
 #define MESS_GAMEOVER_STARTX	5 //Start X for Game Over message
-#define MESS_GAMEOVER_STARTY	200 //Start Y for Game Over message
+#define MESS_GAMEOVER_STARTY	175 //Start Y for Game Over message
 #define MESS_GAMEOVER_WIDTH		135 //Width of Game Over message
 #define MESS_GAMEOVER_HEIGHT	30 //Height of Game Over message
 
+#define MESS_PAUSED_STARTX		5 //Start X for Paused message
+#define MESS_PAUSED_STARTY		210 //Start Y for Paused message
+#define MESS_PAUSED_WIDTH		90 //Width of Paused message
+#define MESS_PAUSED_HEIGHT		30 //Height of Paused message
+
 #define MESS_HISCORE_STARTX		5 //Start X for Hi Score message
-#define MESS_HISCORE_STARTY		235 //Start Y for Hi Score message
+#define MESS_HISCORE_STARTY		245 //Start Y for Hi Score message
 #define MESS_HISCORE_WIDTH		210 //Width of Hi Score message
 #define MESS_HISCORE_HEIGHT		30 //Height of Hi Score message
 
 #define MESS_PRESSA_STARTX		5 //Start X for Press A message
-#define MESS_PRESSA_STARTY		270 //Start Y for Press A message
+#define MESS_PRESSA_STARTY		280 //Start Y for Press A message
 #define MESS_PRESSA_WIDTH		110 //Width of Press A message
 #define MESS_PRESSA_HEIGHT		30 //Height of Press A message
 

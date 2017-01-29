@@ -38,9 +38,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.7"
-     inkscape:cx="523.95261"
-     inkscape:cy="273.90075"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="512.97408"
+     inkscape:cy="286.21305"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -1585,6 +1585,133 @@
            x="85.433502"
            id="tspan5232-3-1"
            sodipodi:role="line">0</tspan></text>
+    </g>
+    <g
+       id="g3974"
+       transform="translate(854.44356,-190.28467)">
+      <rect
+         ry="10.771429"
+         y="871.93365"
+         x="52.142857"
+         height="29"
+         width="109"
+         id="rect3926"
+         style="fill:#000000;fill-opacity:1;stroke:#ffffff;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <text
+         transform="scale(1.0005774,0.99942294)"
+         sodipodi:linespacing="125%"
+         id="text3062-3-0-9-9"
+         y="893.81207"
+         x="58.266132"
+         style="font-size:18.51093864px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ececec;fill-opacity:1;stroke:none;font-family:Sans"
+         xml:space="preserve"><tspan
+           style="font-weight:bold;fill:#ececec"
+           y="893.81207"
+           x="58.266132"
+           id="tspan3064-6-2-5-5"
+           sodipodi:role="line">YOU WIN</tspan></text>
+    </g>
+    <g
+       id="g4009"
+       transform="translate(843.54617,-105.10514)">
+      <rect
+         ry="10.771429"
+         y="868.57648"
+         x="51.92857"
+         height="29"
+         width="134"
+         id="rect3926-1"
+         style="fill:#000000;fill-opacity:1;stroke:#ffffff;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <text
+         transform="scale(1.0005774,0.99942294)"
+         sodipodi:linespacing="125%"
+         id="text3062-3-0-9-9-3"
+         y="890.45294"
+         x="56.053127"
+         style="font-size:18.51093864px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ececec;fill-opacity:1;stroke:none;font-family:Sans"
+         xml:space="preserve"><tspan
+           style="font-weight:bold;fill:#ececec"
+           y="890.45294"
+           x="56.053127"
+           id="tspan3064-6-2-5-5-8"
+           sodipodi:role="line">GAME OVER</tspan></text>
+    </g>
+    <g
+       id="g4063"
+       transform="translate(861.08642,-376.2132)">
+      <g
+         id="g4068"
+         transform="translate(-46.214283,96.428589)">
+        <rect
+           style="fill:#000000;fill-opacity:1;stroke:#ffffff;stroke-width:0.99999988;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+           id="rect3926-1-9"
+           width="209"
+           height="29"
+           x="51.714283"
+           y="921.43359"
+           ry="10.771429" />
+        <text
+           xml:space="preserve"
+           style="font-size:18.51093864px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ececec;fill-opacity:1;stroke:none;font-family:Sans"
+           x="57.837814"
+           y="943.34058"
+           id="text3062-3-0-9-9-3-5"
+           sodipodi:linespacing="125%"
+           transform="scale(1.0005774,0.99942294)"><tspan
+             sodipodi:role="line"
+             id="tspan3064-6-2-5-5-8-6"
+             x="57.837814"
+             y="943.34058"
+             style="font-weight:bold;fill:#ececec">YOU GOT HI SCORE</tspan></text>
+      </g>
+    </g>
+    <g
+       id="g3316"
+       transform="translate(673.08642,-244.2132)">
+      <rect
+         ry="10.771429"
+         y="965.86218"
+         x="238.5"
+         height="29"
+         width="109"
+         id="rect3926-1-9-9"
+         style="fill:#000000;fill-opacity:1;stroke:#ffffff;stroke-width:0.99999988;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <text
+         transform="scale(1.0005774,0.99942294)"
+         sodipodi:linespacing="125%"
+         id="text3062-3-0-9-9-3-5-8"
+         y="987.7948"
+         x="244.51573"
+         style="font-size:18.51093864px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ececec;fill-opacity:1;stroke:none;font-family:Sans"
+         xml:space="preserve"><tspan
+           style="font-weight:bold;fill:#ececec"
+           y="987.7948"
+           x="244.51573"
+           id="tspan3064-6-2-5-5-8-6-3"
+           sodipodi:role="line">PRESS </tspan></text>
+      <text
+         transform="scale(0.90352561,1.1067755)"
+         sodipodi:linespacing="125%"
+         id="text3062-3-0-1-6-7-3-6"
+         y="891.53217"
+         x="353.51627"
+         style="font-size:17.26852608px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ececec;fill-opacity:1;stroke:none;font-family:Sans"
+         xml:space="preserve"><tspan
+           style="font-weight:bold;fill:#ececec"
+           y="891.53217"
+           x="353.51627"
+           id="tspan3064-6-2-0-0-9-2-7"
+           sodipodi:role="line">A</tspan></text>
+      <path
+         transform="matrix(0.38383388,0,0,0.45091915,295.338,829.749)"
+         d="m 105.05587,333.31973 c 0,14.50519 -11.758782,26.26397 -26.263969,26.26397 -14.505188,0 -26.263966,-11.75878 -26.263966,-26.26397 0,-14.50519 11.758778,-26.26396 26.263966,-26.26396 14.505187,0 26.263969,11.75877 26.263969,26.26396 z"
+         sodipodi:ry="26.263966"
+         sodipodi:rx="26.263966"
+         sodipodi:cy="333.31973"
+         sodipodi:cx="78.791901"
+         id="path3787-7-9-1-8"
+         style="fill:none;stroke:#ffffff;stroke-width:2.40369344;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         sodipodi:type="arc" />
     </g>
   </g>
 </svg>

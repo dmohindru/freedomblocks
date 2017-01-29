@@ -74,36 +74,41 @@ Graphics
   --------------------
   Start X for "Press A to continue": 5
   Start Y for "Press A to continue": 5
-  Width of "Press A to continue": 485 px
-  Heigh of "Press A to continue": 50 px
+  Width of "Press A to continue": 240 px
+  Heigh of "Press A to continue": 25 px
+  
+  Start X for "Press B for tutorial": 5
+  Start Y for "Press B for tutorial": 35
+  Width of "Press B for tutorial": 250 px
+  Heigh of "Press B for tutorial": 25 px
   
   Start X for "Confirm Quit": 5
-  Start Y for "Confirm Quit": 60
+  Start Y for "Confirm Quit": 65
   Width of "Confirm Quit": 170 px
   Heigh of "Confirm Quit": 70 px
   
-  Start X for "Press B for tutorial": 5
-  Start Y for "Press B for tutorial": 60
-  Width of "Press B for tutorial": 250 px
-  Heigh of "Press B for tutorial": 135 px
-  
   Start X for "You Win": 5
-  Start Y for "You Win": 165
+  Start Y for "You Win": 140
   Width of "You Win": 110 px
   Heigh of "You Win": 30 px
   
   Start X for "Game Over": 5
-  Start Y for "Game Over": 200
+  Start Y for "Game Over": 175
   Width of "Game Over": 135 px
   Heigh of "Game Over": 30 px
   
+  Start X for "Paused": 5
+  Start Y for "Paused": 210
+  Width of "Paused": 90 px
+  Heigh of "Paused": 30 px
+  
   Start X for "You got Hi Score": 5
-  Start Y for "You got Hi Score": 235
+  Start Y for "You got Hi Score": 245
   Width of "You got Hi Score": 210 px
   Heigh of "You got Hi Score": 30 px
   
   Start X for "Press A": 5
-  Start Y for "Press A": 270
+  Start Y for "Press A": 280
   Width of "Press A": 110 px
   Heigh of "Press A": 30 px
   

@@ -1,5 +1,5 @@
-#include <SDL/SDL.h>
-#include <SDL/SDL_image.h> //think of removing it from here
+//#include <SDL/SDL.h>
+//#include <SDL/SDL_image.h> //think of removing it from here
 #include <stdio.h>
 #include <stdlib.h>
 #include "gamedefs.h"
