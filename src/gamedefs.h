@@ -60,8 +60,8 @@ SDL_Surface *temp; //temp surface storing game data
 #define HISCORE_STARTX			360 //Start X for Hi Score message
 #define HISCORE_STARTY			210 //Start Y for Hi Score message
 
-#define GAME_END_STARTX			400 //Start X for Game End message
-#define GAME_END_STARTY			250 //Start X for Game End message
+#define GAME_STATE_STARTX		400 //Start X for Game State message
+#define GAME_STATE_STARTY		250 //Start X for Game State message
 
 #define PRESSA_STARTX			405 //Start X for Press A message
 #define PRESSA_STARTY			290 //Start X for Press A message
