@@ -12,32 +12,32 @@ SDL_Surface *messages; //Messages screen surface
 SDL_Surface *temp; //temp surface storing game data
 
 //define various games constants 
-#define GAME_WIDTH			800 //Width of game background
-#define GAME_HEIGHT			600 //Height of game background
+#define GAME_WIDTH				800 //Width of game background
+#define GAME_HEIGHT				600 //Height of game background
 
-#define PLAY_GRID_ROW		16 //Number of square logical rows in play grid
-#define PLAY_GRID_COL		10 //Number of square logical cols in play grid
+#define PLAY_GRID_ROW			16 //Number of square logical rows in play grid
+#define PLAY_GRID_COL			10 //Number of square logical cols in play grid
 
-#define TETROMINO_GRID      4 //size of grid to represent tetromino
-#define TETROMINO_ROTATION  4 //number of rotation in tetrominos
-#define TETROMINO_NUM       7 //number of tetrominos in game
+#define TETROMINO_GRID      	4 //size of grid to represent tetromino
+#define TETROMINO_ROTATION  	4 //number of rotation in tetrominos
+#define TETROMINO_NUM       	7 //number of tetrominos in game
 
-#define LEFT				0 //moving tetromino left
-#define RIGHT				1 //moving tetromino right
+#define LEFT					0 //moving tetromino left
+#define RIGHT					1 //moving tetromino right
 
-#define FALSE				0 //basic stuff
-#define TRUE				1 //basic stuff
+#define FALSE					0 //basic stuff
+#define TRUE					1 //basic stuff
 
-#define NEXT_LEVEL_LINES	10 //Number of lines for next level
-#define NEXT_LEVEL_TIME		200 //Time in milliseconds for next level difficulty
+#define NEXT_LEVEL_LINES		10 //Number of lines for next level
+#define NEXT_LEVEL_TIME			200 //Time in milliseconds for next level difficulty
 
 //below are defs with maybe with conditional if for different platforms
-#define LEFT_BUTTON			SDLK_LEFT //SDL left key for linux platform
-#define RIGHT_BUTTON		SDLK_RIGHT //SDL right key for linux platform
-#define UP_BUTTON			SDLK_UP //SDL up key for linux platform
-#define DOWN_BUTTON			SDLK_DOWN //SDL down key for linux platform
-#define A_BUTTON			SDLK_a //SDL A key for linux platform
-#define B_BUTTON 			SDLK_b //SDL b key for linux platform
+#define LEFT_BUTTON				SDLK_LEFT //SDL left key for linux platform
+#define RIGHT_BUTTON			SDLK_RIGHT //SDL right key for linux platform
+#define UP_BUTTON				SDLK_UP //SDL up key for linux platform
+#define DOWN_BUTTON				SDLK_DOWN //SDL down key for linux platform
+#define A_BUTTON				SDLK_a //SDL A key for linux platform
+#define B_BUTTON 				SDLK_b //SDL b key for linux platform
 
 //Graphics placement for Main game play screen
 #define TETROMINO_SPACING		2 //Spacing between tetrominos squares
