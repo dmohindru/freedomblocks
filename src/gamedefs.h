@@ -39,6 +39,12 @@ SDL_Surface *temp; //temp surface storing game data
 #define DOWN_BUTTON				SDLK_DOWN //SDL down key for linux platform
 #define A_BUTTON				SDLK_a //SDL A key for linux platform
 #define B_BUTTON 				SDLK_b //SDL b key for linux platform
+#define HOME_BUTTON				SDLK_q //SDL q key for linux platform
+
+//Various game states
+#define STATE_WELCOME			1 //Welcome State in game
+#define STATE_PLAY				2 //Play State in game
+#define STATE_TUTORIAL			3 //Tutorial State in game
 
 //Graphics placement for Main game play screen
 #define TETROMINO_SPACING		2 //Spacing between tetrominos squares
@@ -67,14 +73,14 @@ SDL_Surface *temp; //temp surface storing game data
 #define PRESSA_STARTY			290 //Start X for Press A message
 
 //Graphics placement for Welcome screen
-#define WSCR_PRESSA_STARTX		170 //Start X for Press A message on Welcome Screen
-#define WSCR_PRESSA_STARTY		400 //Start Y for Press A message on Welcome Screen
+#define WSCR_PRESSA_STARTX		275 //Start X for Press A message on Welcome Screen
+#define WSCR_PRESSA_STARTY		375 //Start Y for Press A message on Welcome Screen
 
 #define WSCR_PRESSB_STARTX		275 //Start X for Press B message on Welcome Screen
 #define WSCR_PRESSB_STARTY		550 //Start Y for Press B message on Welcome Screen
 
 //Graphics placement for Tutorial screen
-#define TSCR_PRESSA_STARTX		170 //Start X for Press A message on Tutorial Screen
+#define TSCR_PRESSA_STARTX		275 //Start X for Press A message on Tutorial Screen
 #define TSCR_PRESSA_STARTY		530 //Start Y for Press A message on Tutorial Screen 
 
 //Graphics placement in Data bitmap

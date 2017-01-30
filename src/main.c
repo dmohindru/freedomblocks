@@ -6,7 +6,7 @@
 #include "resources.h"
 #include "tetromino.h"
 
-static int scores, level;
+static int scores, level, game_state;
 
 static void DrawBackground()
 {
@@ -17,6 +17,26 @@ static void DrawBackground()
 	src.y = 0;
 	dest = src;
 	SDL_BlitSurface(background, &src, screen, &dest);
+}
+static void DrawWelcomeBackground()
+{
+	SDL_Rect src, dest;
+	src.w = welcome->w;
+	src.h = welcome->h;
+	src.x = 0;
+	src.y = 0;
+	dest = src;
+	SDL_BlitSurface(welcome, &src, screen, &dest);
+}
+static void DrawTutorialBackground()
+{
+	SDL_Rect src, dest;
+	src.w = tutorial->w;
+	src.h = tutorial->h;
+	src.x = 0;
+	src.y = 0;
+	dest = src;
+	SDL_BlitSurface(tutorial, &src, screen, &dest);
 }
 static void DrawScores()
 {
@@ -70,6 +90,7 @@ static void PlayGame()
   InitalizePlayGrid();
   SpawnNewTetromino();
   timer_running = TRUE;
+  game_state = WELCOME_STATE;
   previous_time = SDL_GetTicks(); 
 	while(quit == 0)
   {
@@ -81,33 +102,33 @@ static void PlayGame()
 					keysym = event.key.keysym;
           switch(keysym.sym)
 					{
-						case SDLK_q:
+						case HOME_BUTTON:
 							quit = 1;
 							break;
-						case SDLK_LEFT:
+						case LEFT_BUTTON:
 							if(timer_running)
                 MoveTetromino(LEFT);
 							//printf("Moving tetromino left\n");
 							break;
-						case SDLK_RIGHT:
+						case RIGHT_BUTTON:
               if(timer_running)
                 MoveTetromino(RIGHT);
 							//printf("Moving tetromino right\n");
 							break;
-						case SDLK_UP:
+						case UP_BUTTON:
 							//rotate between different shapes and rotations
 							if(timer_running)
                 RotateTetromino();
 							//printf("Rotating tetromino\n");
 							break;
-						case SDLK_DOWN:
+						case DOWN_BUTTON:
 							if(timer_running)
                 LandTetromino();
               //MoveTetrominoDown();
 							//printf("Moving tetromino down\n");
 							break;
 						//temp logic below
-            case SDLK_p:
+            case A_BUTTON:
 							if(timer_running)
               {
                 timer_running = FALSE;
@@ -120,7 +141,7 @@ static void PlayGame()
               //SpawnNewTetromino();
 							//printf("spawning new tetromino\n");
 							break;
-            case SDLK_a: //increment scores and levels
+            case B_BUTTON: //increment scores and levels
               level += 1;
               scores += 51;
               if(level >= 100)
@@ -141,28 +162,31 @@ static void PlayGame()
 					break;
 			}
 		}
-    if(timer_running)
-    {
-      current_time = SDL_GetTicks();
-      if(current_time - previous_time >= delay)
-      {
-        MoveTetrominoDown();
-        previous_time = current_time;
-      }
-    }
+    
 	
-		//draw stuff
-		DrawBackground();
-		DrawGridBlocks();
-    DrawTetromino(); //current tetromino
-    DrawNextTetromino();
-    if(IfTetrominoLanded())
+		//Play game state
+		if(game_state == STATE_PLAY)
     {
-      UpdatePlayGrid();
-      score_factor = 10;
-      //check for line cleared
-      while((lines_cleared = LinesCleared()))
+      if(timer_running)
       {
+        current_time = SDL_GetTicks();
+        if(current_time - previous_time >= delay)
+        {
+          MoveTetrominoDown();
+          previous_time = current_time;
+        }
+      }
+      DrawBackground();
+      DrawGridBlocks();
+      DrawTetromino(); //current tetromino
+      DrawNextTetromino();
+      if(IfTetrominoLanded())
+      {
+        UpdatePlayGrid();
+        score_factor = 10;
+        //check for line cleared
+        while((lines_cleared = LinesCleared()))
+        {
           printf("lines_cleared: %d\n", lines_cleared);
           level_lines += lines_cleared;
           printf("level_lines: %d\n", level_lines);
@@ -177,25 +201,31 @@ static void PlayGame()
           scores += lines_cleared * score_factor;
           score_factor += 5;
         
+        }
+        if(!SpawnNewTetromino())
+        {
+          printf("Game over!\n");
+          quit = 1;
+        }
       }
-      if(!SpawnNewTetromino())
+    
+      DrawScores();
+      DrawLevel();
+      if(!timer_running)
       {
-        printf("Game over!\n");
-        quit = 1;
+        //SDL BILT Paused bitmap
       }
-     // else
-     //   printf("Tetromino landed\n");
-    }
-   
-    DrawScores();
-		DrawLevel();
-		if(!timer_running)
+      
+		}
+    else if(game_state == STATE_WELCOME)
     {
-      //SDL BILT Paused bitmap
+      DrawWelcomeBackground();
     }
-		//DrawTetromino(); //next tetromino
+    else if(game_state == STATE_TUTORIAL)
+    {
+      DrawTutorialBackground();
+    }
     SDL_Flip(screen);
-		
 	}
 }
 
