@@ -28,6 +28,112 @@ static void DrawWelcomeBackground()
 	dest = src;
 	SDL_BlitSurface(welcome, &src, screen, &dest);
 }
+static void DrawPressAContinue()
+{
+	SDL_Rect src, dest;
+	src.w = MESS_PRESSA_BIG_WIDTH;
+	src.h = MESS_PRESSA_BIG_HEIGHT;
+	src.x = MESS_PRESSA_BIG_STARTX;
+	src.y = MESS_PRESSA_BIG_STARTY;
+	dest.w = MESS_PRESSA_BIG_WIDTH;
+	dest.h = MESS_PRESSA_BIG_HEIGHT;
+	dest.x = WSCR_PRESSA_STARTX;
+	dest.y = WSCR_PRESSA_STARTY;
+	SDL_BlitSurface(messages, &src, screen, &dest);
+}
+static void DrawPressB()
+{
+	SDL_Rect src, dest;
+	src.w = MESS_PRESSB_WIDTH;
+	src.h = MESS_PRESSB_HEIGHT;
+	src.x = MESS_PRESSB_STARTX;
+	src.y = MESS_PRESSB_STARTY;
+	dest.w = MESS_PRESSB_WIDTH;
+	dest.h = MESS_PRESSB_HEIGHT;
+	dest.x = WSCR_PRESSB_STARTX;
+	dest.y = WSCR_PRESSB_STARTY;
+	SDL_BlitSurface(messages, &src, screen, &dest);
+}
+static void DrawConfirmQuit()
+{
+	SDL_Rect src, dest;
+	src.w = MESS_QUIT_WIDTH;
+	src.h = MESS_QUIT_HEIGHT;
+	src.x = MESS_QUIT_STARTX;
+	src.y = MESS_QUIT_STARTY;
+	dest.w = MESS_QUIT_WIDTH;
+	dest.h = MESS_QUIT_HEIGHT;
+	dest.x = GAME_STATE_STARTX;
+	dest.y = GAME_STATE_STARTY;
+	SDL_BlitSurface(messages, &src, screen, &dest);
+}
+static void DrawYouWin()
+{
+	SDL_Rect src, dest;
+	src.w = MESS_YOUWIN_WIDTH;
+	src.h = MESS_YOUWIN_HEIGHT;
+	src.x = MESS_YOUWIN_STARTX;
+	src.y = MESS_YOUWIN_STARTY;
+	dest.w = MESS_YOUWIN_WIDTH;
+	dest.h = MESS_YOUWIN_HEIGHT;
+	dest.x = GAME_STATE_STARTX;
+	dest.y = GAME_STATE_STARTY;
+	SDL_BlitSurface(messages, &src, screen, &dest);
+}
+static void DrawGameOver()
+{
+	SDL_Rect src, dest;
+	src.w = MESS_GAMEOVER_WIDTH;
+	src.h = MESS_GAMEOVER_HEIGHT;
+	src.x = MESS_GAMEOVER_STARTX;
+	src.y = MESS_GAMEOVER_STARTY;
+	dest.w = MESS_GAMEOVER_WIDTH;
+	dest.h = MESS_GAMEOVER_HEIGHT;
+	dest.x = GAME_STATE_STARTX;
+	dest.y = GAME_STATE_STARTY;
+	SDL_BlitSurface(messages, &src, screen, &dest);
+}
+static void DrawPaused()
+{
+	SDL_Rect src, dest;
+	src.w = MESS_PAUSED_WIDTH;
+	src.h = MESS_PAUSED_HEIGHT;
+	src.x = MESS_PAUSED_STARTX;
+	src.y = MESS_PAUSED_STARTY;
+	dest.w = MESS_PAUSED_WIDTH;
+	dest.h = MESS_PAUSED_HEIGHT;
+	dest.x = GAME_STATE_STARTX;
+	dest.y = GAME_STATE_STARTY;
+	SDL_BlitSurface(messages, &src, screen, &dest);
+	
+}
+static void DrawYouGotHighScore()
+{
+	SDL_Rect src, dest;
+	src.w = MESS_HISCORE_WIDTH;
+	src.h = MESS_HISCORE_HEIGHT;
+	src.x = MESS_HISCORE_STARTX;
+	src.y = MESS_HISCORE_STARTY;
+	dest.w = MESS_HISCORE_WIDTH;
+	dest.h = MESS_HISCORE_HEIGHT;
+	dest.x = HISCORE_STARTX;
+	dest.y = HISCORE_STARTY;
+	SDL_BlitSurface(messages, &src, screen, &dest);
+	
+}
+static void DrawPressA()
+{
+	SDL_Rect src, dest;
+	src.w = MESS_PRESSA_WIDTH;
+	src.h = MESS_PRESSA_HEIGHT;
+	src.x = MESS_PRESSA_STARTX;
+	src.y = MESS_PRESSA_STARTY;
+	dest.w = MESS_PRESSA_WIDTH;
+	dest.h = MESS_PRESSA_HEIGHT;
+	dest.x = PRESSA_STARTX;
+	dest.y = PRESSA_STARTY;
+	SDL_BlitSurface(messages, &src, screen, &dest);
+}
 static void DrawTutorialBackground()
 {
 	SDL_Rect src, dest;
@@ -90,7 +196,7 @@ static void PlayGame()
   InitalizePlayGrid();
   SpawnNewTetromino();
   timer_running = TRUE;
-  game_state = WELCOME_STATE;
+  game_state = STATE_WELCOME;
   previous_time = SDL_GetTicks(); 
 	while(quit == 0)
   {
@@ -220,10 +326,19 @@ static void PlayGame()
     else if(game_state == STATE_WELCOME)
     {
       DrawWelcomeBackground();
+      //DrawPressAContinue();
+      //DrawPressB();
+      //DrawConfirmQuit();
+      //DrawYouWin();
+      //DrawGameOver();
+      DrawPaused();
+      DrawYouGotHighScore();
+      DrawPressA();
     }
     else if(game_state == STATE_TUTORIAL)
     {
       DrawTutorialBackground();
+     
     }
     SDL_Flip(screen);
 	}

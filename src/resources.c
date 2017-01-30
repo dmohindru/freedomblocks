@@ -85,8 +85,8 @@ void LoadGameGraphics()
 	}
   //set the color key
   SDL_SetColorKey(temp, SDL_SRCCOLORKEY | SDL_RLEACCEL, 
-		  (Uint16) SDL_MapRGB(temp->format, COLORKEY_MESS_RED, 
-                  COLORKEY_MESS_GREEN, COLORKEY_MESS_BLUE));
+		  (Uint16) SDL_MapRGB(temp->format, COLORKEY_RED, 
+                  COLORKEY_GREEN, COLORKEY_BLUE));
   messages = SDL_DisplayFormat(temp);
 	if (messages == NULL)
   {

@@ -11,10 +11,6 @@
 #define COLORKEY_GREEN      0 //Color key green component
 #define COLORKEY_BLUE       0 //Color key blue component
 
-#define COLORKEY_MESS_RED    0 //Color key red component
-#define COLORKEY_MESS_GREEN  0 //Color key green component
-#define COLORKEY_MESS_BLUE   255 //Color key blue component
-
 void LoadGameGraphics();
 void FreeGameGraphics();
 
