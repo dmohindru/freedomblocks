@@ -14,7 +14,7 @@
    id="svg3029"
    version="1.1"
    inkscape:version="0.48.4 r9939"
-   sodipodi:docname="Welcome.svg">
+   sodipodi:docname="welcome.svg">
   <defs
      id="defs3031" />
   <sodipodi:namedview
@@ -43,7 +43,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -65,10 +65,116 @@
          x="-66.428574"
          y="95.714287" /></text>
     <g
-       id="g4667"
-       inkscape:export-filename="/home/dhruv/Programming/freedomblocks/graphics/welcome.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90">
+       id="g3930">
+      <g
+         transform="matrix(0.99938591,0,0,1,270.00307,57.499975)"
+         id="g3172">
+        <text
+           xml:space="preserve"
+           style="font-size:18.32104301px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ececec;fill-opacity:1;stroke:none;font-family:Sans"
+           x="3.2640374"
+           y="796.80432"
+           id="text3062-3-0-9-7"
+           sodipodi:linespacing="125%"
+           transform="scale(1.0109482,0.98917035)"><tspan
+             sodipodi:role="line"
+             id="tspan3064-6-2-5-8"
+             x="3.2640374"
+             y="796.80432"
+             style="font-weight:bold;fill:#ececec">PRESS</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-size:18.32104301px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ececec;fill-opacity:1;stroke:none;font-family:Sans"
+           x="102.96464"
+           y="796.80432"
+           id="text3062-3-0-5-0-5"
+           sodipodi:linespacing="125%"
+           transform="scale(1.0109482,0.98917033)"><tspan
+             sodipodi:role="line"
+             id="tspan3064-6-2-4-4-3"
+             x="102.96464"
+             y="796.80432"
+             style="font-weight:bold;fill:#ececec">TO CONTINUE</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-size:18.13373566px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ececec;fill-opacity:1;stroke:none;font-family:Sans"
+           x="78.796532"
+           y="797.06372"
+           id="text3062-3-0-1-6-3"
+           sodipodi:linespacing="125%"
+           transform="scale(1.0109482,0.98917033)"><tspan
+             sodipodi:role="line"
+             id="tspan3064-6-2-0-0-4"
+             x="78.796532"
+             y="797.06372"
+             style="font-weight:bold;fill:#ececec">A</tspan></text>
+        <path
+           sodipodi:type="arc"
+           style="fill:none;stroke:#ffffff;stroke-width:2.16562343;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+           id="path3787-7-3"
+           sodipodi:cx="78.791901"
+           sodipodi:cy="333.31973"
+           sodipodi:rx="26.263966"
+           sodipodi:ry="26.263966"
+           d="m 105.05587,333.31973 c 0,14.50519 -11.758782,26.26397 -26.263969,26.26397 -14.505188,0 -26.263966,-11.75878 -26.263966,-26.26397 0,-14.50519 11.758778,-26.26396 26.263966,-26.26396 14.505187,0 26.263969,11.75877 26.263969,26.26396 z"
+           transform="matrix(0.46695963,0,0,0.45690037,50.020885,630.06828)" />
+      </g>
+      <g
+         transform="matrix(1,0,0,0.97958816,270,104.22515)"
+         id="g3239">
+        <text
+           xml:space="preserve"
+           style="font-size:18.51093864px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ececec;fill-opacity:1;stroke:none;font-family:Sans"
+           x="3.2978673"
+           y="936.08643"
+           id="text3062-3-0-9-8"
+           sodipodi:linespacing="125%"
+           transform="scale(1.0005774,0.99942296)"><tspan
+             sodipodi:role="line"
+             id="tspan3064-6-2-5-3"
+             x="3.2978673"
+             y="936.08643"
+             style="font-weight:bold;fill:#ececec">PRESS</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-size:18.51093864px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ececec;fill-opacity:1;stroke:none;font-family:Sans"
+           x="103.03243"
+           y="936.08643"
+           id="text3062-3-0-5-0-4"
+           sodipodi:linespacing="125%"
+           transform="scale(1.0005774,0.99942296)"><tspan
+             sodipodi:role="line"
+             id="tspan3064-6-2-4-4-1"
+             x="103.03243"
+             y="936.08643"
+             style="font-weight:bold;fill:#ececec">FOR TUTORIAL</tspan></text>
+        <g
+           id="g3106">
+          <text
+             transform="scale(1.0005774,0.99942296)"
+             sodipodi:linespacing="125%"
+             id="text3062-3-0-1-6-8"
+             y="936.34851"
+             x="78.613831"
+             style="font-size:18.32168961px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ececec;fill-opacity:1;stroke:none;font-family:Sans"
+             xml:space="preserve"><tspan
+               style="font-weight:bold;fill:#ececec"
+               y="936.34851"
+               x="78.613831"
+               id="tspan3064-6-2-0-0-9"
+               sodipodi:role="line">B</tspan></text>
+          <path
+             transform="matrix(0.46695963,0,0,0.46642088,49.020891,774.14483)"
+             d="m 105.05587,333.31973 c 0,14.50519 -11.758782,26.26397 -26.263969,26.26397 -14.505188,0 -26.263966,-11.75878 -26.263966,-26.26397 0,-14.50519 11.758778,-26.26396 26.263966,-26.26396 14.505187,0 26.263969,11.75877 26.263969,26.26396 z"
+             sodipodi:ry="26.263966"
+             sodipodi:rx="26.263966"
+             sodipodi:cy="333.31973"
+             sodipodi:cx="78.791901"
+             id="path3787-7-5"
+             style="fill:none;stroke:#ffffff;stroke-width:2.16495848;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+             sodipodi:type="arc" />
+        </g>
+      </g>
       <rect
          y="452.86218"
          x="0.5"
@@ -499,104 +605,6 @@
           </g>
         </g>
       </g>
-      <text
-         transform="scale(1.0062563,0.99378261)"
-         sodipodi:linespacing="125%"
-         id="text3062-3-0"
-         y="894.79041"
-         x="165.52441"
-         style="font-size:37.24123001px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-         xml:space="preserve"><tspan
-           style="font-weight:bold;fill:#000000"
-           y="894.79041"
-           x="165.52441"
-           id="tspan3064-6-2"
-           sodipodi:role="line">PRESS</tspan></text>
-      <text
-         transform="scale(1.0062563,0.99378261)"
-         sodipodi:linespacing="125%"
-         id="text3062-3-0-1"
-         y="895.31775"
-         x="317.04883"
-         style="font-size:36.86048889px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-         xml:space="preserve"><tspan
-           style="font-weight:bold;fill:#000000"
-           y="895.31775"
-           x="317.04883"
-           id="tspan3064-6-2-0"
-           sodipodi:role="line">A</tspan></text>
-      <text
-         transform="scale(1.0062563,0.99378261)"
-         sodipodi:linespacing="125%"
-         id="text3062-3-0-5"
-         y="894.79041"
-         x="366.17538"
-         style="font-size:37.24123001px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-         xml:space="preserve"><tspan
-           style="font-weight:bold;fill:#000000"
-           y="894.79041"
-           x="366.17538"
-           id="tspan3064-6-2-4"
-           sodipodi:role="line">TO CONTINUE</tspan></text>
-      <path
-         transform="matrix(0.94478469,0,0,0.93307304,259.06608,566.34433)"
-         d="m 105.05587,333.31973 a 26.263966,26.263966 0 1 1 -52.527935,0 26.263966,26.263966 0 1 1 52.527935,0 z"
-         sodipodi:ry="26.263966"
-         sodipodi:rx="26.263966"
-         sodipodi:cy="333.31973"
-         sodipodi:cx="78.791901"
-         id="path3787"
-         style="fill:#000000;stroke:#000000;stroke-width:1.06506407;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-         sodipodi:type="arc" />
-      <text
-         transform="scale(1.0005774,0.99942295)"
-         sodipodi:linespacing="125%"
-         id="text3062-3-0-9"
-         y="1021.1355"
-         x="273.14206"
-         style="font-size:18.51093864px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-         xml:space="preserve"><tspan
-           style="font-weight:bold;fill:#000000"
-           y="1021.1355"
-           x="273.14206"
-           id="tspan3064-6-2-5"
-           sodipodi:role="line">PRESS</tspan></text>
-      <text
-         transform="scale(1.0005774,0.99942295)"
-         sodipodi:linespacing="125%"
-         id="text3062-3-0-1-6"
-         y="1021.3976"
-         x="348.45804"
-         style="font-size:18.32168961px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-         xml:space="preserve"><tspan
-           style="font-weight:bold;fill:#000000"
-           y="1021.3976"
-           x="348.45804"
-           id="tspan3064-6-2-0-0"
-           sodipodi:role="line">B</tspan></text>
-      <text
-         transform="scale(1.0005774,0.99942295)"
-         sodipodi:linespacing="125%"
-         id="text3062-3-0-5-0"
-         y="1021.1355"
-         x="372.87662"
-         style="font-size:18.51093864px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-         xml:space="preserve"><tspan
-           style="font-weight:bold;fill:#000000"
-           y="1021.1355"
-           x="372.87662"
-           id="tspan3064-6-2-4-4"
-           sodipodi:role="line">FOR TUTORIAL</tspan></text>
-      <path
-         transform="matrix(0.46695963,0,0,0.46642088,319.02089,859.14483)"
-         d="m 105.05587,333.31973 a 26.263966,26.263966 0 1 1 -52.527935,0 26.263966,26.263966 0 1 1 52.527935,0 z"
-         sodipodi:ry="26.263966"
-         sodipodi:rx="26.263966"
-         sodipodi:cy="333.31973"
-         sodipodi:cx="78.791901"
-         id="path3787-7"
-         style="fill:#000000;stroke:#000000;stroke-width:2.14274907;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-         sodipodi:type="arc" />
     </g>
   </g>
 </svg>

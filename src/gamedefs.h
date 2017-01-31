@@ -32,6 +32,10 @@ SDL_Surface *temp; //temp surface storing game data
 #define NEXT_LEVEL_LINES		10 //Number of lines for next level
 #define NEXT_LEVEL_TIME			200 //Time in milliseconds for next level difficulty
 
+#define GAME_OVER_STATE			1 //Game over state
+#define GAME_WIN_STATE			2 //Game win state
+#define GAME_END_NONE			0 //Game state not ended
+
 //below are defs with maybe with conditional if for different platforms
 #define LEFT_BUTTON				SDLK_LEFT //SDL left key for linux platform
 #define RIGHT_BUTTON			SDLK_RIGHT //SDL right key for linux platform

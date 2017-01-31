@@ -41,6 +41,19 @@ static void DrawPressAContinue()
 	dest.y = WSCR_PRESSA_STARTY;
 	SDL_BlitSurface(messages, &src, screen, &dest);
 }
+static void DrawPressAContinueTutorial()
+{
+	SDL_Rect src, dest;
+	src.w = MESS_PRESSA_BIG_WIDTH;
+	src.h = MESS_PRESSA_BIG_HEIGHT;
+	src.x = MESS_PRESSA_BIG_STARTX;
+	src.y = MESS_PRESSA_BIG_STARTY;
+	dest.w = MESS_PRESSA_BIG_WIDTH;
+	dest.h = MESS_PRESSA_BIG_HEIGHT;
+	dest.x = TSCR_PRESSA_STARTX;
+	dest.y = TSCR_PRESSA_STARTY;
+	SDL_BlitSurface(messages, &src, screen, &dest);
+}
 static void DrawPressB()
 {
 	SDL_Rect src, dest;
@@ -189,15 +202,14 @@ static void DrawLevel()
 static void PlayGame()
 {
 	int quit = 0, lines_cleared, level_lines = 0, 
-      score_factor, timer_running;
+      score_factor, timer_running, confirm_quit, game_end;
 	unsigned int previous_time, current_time, delay = 1000;
   SDL_Event event;
 	SDL_keysym keysym;
-  InitalizePlayGrid();
-  SpawnNewTetromino();
-  timer_running = TRUE;
+  
+  timer_running = FALSE;
   game_state = STATE_WELCOME;
-  previous_time = SDL_GetTicks(); 
+ 
 	while(quit == 0)
   {
     while(SDL_PollEvent(&event))
@@ -209,51 +221,78 @@ static void PlayGame()
           switch(keysym.sym)
 					{
 						case HOME_BUTTON:
-							quit = 1;
-							break;
+							if(game_state == STATE_WELCOME)
+                quit = 1;
+                break;
 						case LEFT_BUTTON:
-							if(timer_running)
+							if(timer_running && game_state == STATE_PLAY)
                 MoveTetromino(LEFT);
-							//printf("Moving tetromino left\n");
-							break;
+                break;
 						case RIGHT_BUTTON:
-              if(timer_running)
+              if(timer_running && game_state == STATE_PLAY)
                 MoveTetromino(RIGHT);
-							//printf("Moving tetromino right\n");
-							break;
+                break;
 						case UP_BUTTON:
-							//rotate between different shapes and rotations
-							if(timer_running)
+							if(timer_running && game_state == STATE_PLAY)
                 RotateTetromino();
-							//printf("Rotating tetromino\n");
-							break;
+                break;
 						case DOWN_BUTTON:
-							if(timer_running)
+							if(timer_running && game_state == STATE_PLAY)
                 LandTetromino();
-              //MoveTetrominoDown();
-							//printf("Moving tetromino down\n");
-							break;
-						//temp logic below
+                break;
             case A_BUTTON:
-							if(timer_running)
+							if(game_state == STATE_WELCOME)
               {
-                timer_running = FALSE;
-              }
-              else
-              {
+                game_state = STATE_PLAY;
                 timer_running = TRUE;
-                previous_time = SDL_GetTicks();
+                InitalizePlayGrid();
+                SpawnNewTetromino();
+                previous_time = SDL_GetTicks(); 
               }
-              //SpawnNewTetromino();
-							//printf("spawning new tetromino\n");
+              else if(game_state == STATE_PLAY)
+              {
+                if(timer_running && !game_end && !confirm_quit)
+                {
+                  timer_running = FALSE;
+                }
+                else if(!timer_running && !game_end && !confirm_quit)
+                {
+                  timer_running = TRUE;
+                  previous_time = SDL_GetTicks();
+                }
+                else if(!timer_running && game_end && !confirm_quit)
+                {
+                  game_state = STATE_WELCOME;
+                }
+                else if(!timer_running && !game_end && confirm_quit)
+                {
+                  game_state = STATE_WELCOME;
+                }
+              }
+              else if(game_state == STATE_TUTORIAL)
+              {
+                game_state = STATE_WELCOME;
+              }
 							break;
-            case B_BUTTON: //increment scores and levels
-              level += 1;
-              scores += 51;
-              if(level >= 100)
-                level = 0;
-              if(scores >= 10000)
-                scores = 0;
+            case B_BUTTON:
+              if(game_state == STATE_WELCOME)
+              {
+                game_state = STATE_TUTORIAL;
+              }
+              else if(game_state == STATE_PLAY)
+              {
+                if(timer_running && !game_end && !confirm_quit)
+                {
+                  timer_running = FALSE;
+                  confirm_quit = TRUE;
+                }
+                else if(!timer_running && !game_end && confirm_quit)
+                {
+                  timer_running = TRUE;
+                  previous_time = SDL_GetTicks();
+                  confirm_quit = FALSE;
+                }
+              }
               break;
 						default:
 							break;
@@ -310,8 +349,9 @@ static void PlayGame()
         }
         if(!SpawnNewTetromino())
         {
-          printf("Game over!\n");
-          quit = 1;
+          //printf("Game over!\n");
+          //quit = 1;
+          timer_running = FALSE;
         }
       }
     
@@ -326,18 +366,13 @@ static void PlayGame()
     else if(game_state == STATE_WELCOME)
     {
       DrawWelcomeBackground();
-      //DrawPressAContinue();
-      //DrawPressB();
-      //DrawConfirmQuit();
-      //DrawYouWin();
-      //DrawGameOver();
-      DrawPaused();
-      DrawYouGotHighScore();
-      DrawPressA();
+      DrawPressAContinue();
+      DrawPressB();
     }
     else if(game_state == STATE_TUTORIAL)
     {
       DrawTutorialBackground();
+      DrawPressAContinueTutorial();
      
     }
     SDL_Flip(screen);
