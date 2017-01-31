@@ -31,10 +31,16 @@ SDL_Surface *temp; //temp surface storing game data
 
 #define NEXT_LEVEL_LINES		10 //Number of lines for next level
 #define NEXT_LEVEL_TIME			200 //Time in milliseconds for next level difficulty
+#define DELAY_START					1500 //Initial Delay for block to fall
+#define LANDED_DELAY				400 //delay before to check for landed position
+#define SCORES_PER_LINE			10 //Scores per line
+#define SCORES_BONUS				5	//Bonus scores for recussive line completion
+
+#define MAX_LEVELS					10 //Max Levels to call for win
+#define LEVEL_LINES					10 //Lines to clear a level
 
 #define GAME_OVER_STATE			1 //Game over state
 #define GAME_WIN_STATE			2 //Game win state
-#define GAME_END_NONE			0 //Game state not ended
 
 //below are defs with maybe with conditional if for different platforms
 #define LEFT_BUTTON				SDLK_LEFT //SDL left key for linux platform

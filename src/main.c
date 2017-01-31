@@ -6,7 +6,7 @@
 #include "resources.h"
 #include "tetromino.h"
 
-static int scores, level, game_state;
+static int scores, level, game_state, hiscore = 100;
 
 static void DrawBackground()
 {
@@ -203,11 +203,14 @@ static void PlayGame()
 {
 	int quit = 0, lines_cleared, level_lines = 0, 
       score_factor, timer_running, confirm_quit, game_end;
-	unsigned int previous_time, current_time, delay = 1000;
+	unsigned int previous_time, current_time, delay;
+	unsigned int landed_previous_time, landed_current_time, delay_landed;
   SDL_Event event;
 	SDL_keysym keysym;
   
   timer_running = FALSE;
+  game_end = FALSE;
+  confirm_quit = FALSE;
   game_state = STATE_WELCOME;
  
 	while(quit == 0)
@@ -245,9 +248,15 @@ static void PlayGame()
               {
                 game_state = STATE_PLAY;
                 timer_running = TRUE;
+                game_end = FALSE;
+                confirm_quit = FALSE;
                 InitalizePlayGrid();
                 SpawnNewTetromino();
-                previous_time = SDL_GetTicks(); 
+                previous_time = SDL_GetTicks();
+                landed_previous_time = SDL_GetTicks();
+                scores = 0;
+                level = 1; 
+                delay = DELAY_START;
               }
               else if(game_state == STATE_PLAY)
               {
@@ -315,6 +324,8 @@ static void PlayGame()
       if(timer_running)
       {
         current_time = SDL_GetTicks();
+        landed_current_time = SDL_GetTicks();
+        delay_landed = landed_current_time - landed_previous_time;
         if(current_time - previous_time >= delay)
         {
           MoveTetrominoDown();
@@ -325,26 +336,31 @@ static void PlayGame()
       DrawGridBlocks();
       DrawTetromino(); //current tetromino
       DrawNextTetromino();
-      if(IfTetrominoLanded())
+      if(IfTetrominoLanded() && !game_end && delay_landed >= LANDED_DELAY)
       {
+        landed_previous_time = landed_current_time;
         UpdatePlayGrid();
-        score_factor = 10;
+        score_factor = SCORES_PER_LINE;
         //check for line cleared
         while((lines_cleared = LinesCleared()))
         {
-          printf("lines_cleared: %d\n", lines_cleared);
+          //printf("lines_cleared: %d\n", lines_cleared);
           level_lines += lines_cleared;
-          printf("level_lines: %d\n", level_lines);
-          if(level_lines >= 10)
+          //printf("level_lines: %d\n", level_lines);
+          if(level_lines >= LEVEL_LINES)
           {
             level++;
-            level_lines = level_lines - 10;
+            level_lines = level_lines - LEVEL_LINES;
             delay -= NEXT_LEVEL_TIME;
           }
-          if(level >= 10)
-            printf("You win\n");
+          if(level >= MAX_LEVELS)
+          {
+            timer_running = FALSE;
+            game_end = GAME_WIN_STATE;
+            //printf("You win\n");
+          }
           scores += lines_cleared * score_factor;
-          score_factor += 5;
+          score_factor += SCORES_BONUS;
         
         }
         if(!SpawnNewTetromino())
@@ -352,15 +368,35 @@ static void PlayGame()
           //printf("Game over!\n");
           //quit = 1;
           timer_running = FALSE;
+          game_end = GAME_OVER_STATE;
         }
       }
     
       DrawScores();
       DrawLevel();
-      if(!timer_running)
+      if(!timer_running && !game_end && !confirm_quit)
       {
-        //SDL BILT Paused bitmap
+        DrawPaused();
       }
+      else if(!timer_running && game_end == GAME_OVER_STATE && !confirm_quit)
+      {
+				DrawGameOver();
+				DrawPressA();
+			}
+			else if(!timer_running && game_end == GAME_WIN_STATE && !confirm_quit)
+      {
+				DrawYouWin();
+				DrawPressA();
+				if(scores > hiscore)
+				{
+					DrawYouGotHighScore();
+					//Save Hi scores here
+				}
+			}
+			else if(!timer_running && !game_end && confirm_quit)
+			{
+				DrawConfirmQuit();
+			}
       
 		}
     else if(game_state == STATE_WELCOME)
