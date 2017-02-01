@@ -6,7 +6,7 @@
 #include "resources.h"
 #include "tetromino.h"
 
-static int scores, level, game_state, hiscore = 100;
+static int scores, level, game_state, hiscore;
 
 static void DrawBackground()
 {
@@ -198,13 +198,44 @@ static void DrawLevel()
 	}
 	
 }
+static int ReadHiScores()
+{
+  FILE *hi_score_file;
+  int hi_scores = 0;
+  //First read attempt to open existing file
+  hi_score_file = fopen(HI_SCORE_FILE, "r");
+  if(!hi_score_file) //if file does not exist then create one
+  {
+    hi_score_file = fopen(HI_SCORE_FILE, "w");
+    if(!hi_score_file)
+      printf("Hi Score data file creation failed\n");
+    return 0; //return 0 hi scores
+  }
+  fscanf(hi_score_file, "%d", &hi_scores);
+  fclose(hi_score_file);
+  return hi_scores;
+  
+}
+static void SaveHiScores(int hi_scores)
+{
+  FILE *hi_score_file;
+  //open file writing
+  hi_score_file = fopen(HI_SCORE_FILE, "w");
+  if(!hi_score_file) //if some error happend during opening of file
+  {
+    printf("Error opening hi score file!\n");
+  }
+  fprintf(hi_score_file, "%d", hi_scores);
+  fclose(hi_score_file);
+}
 
 static void PlayGame()
 {
 	int quit = 0, lines_cleared, level_lines = 0, 
       score_factor, timer_running, confirm_quit, game_end;
+  //int scores, level, game_state, hiscore;
 	unsigned int previous_time, current_time, delay;
-	unsigned int landed_previous_time, landed_current_time, delay_landed;
+	//unsigned int landed_previous_time, landed_current_time, delay_landed;
   SDL_Event event;
 	SDL_keysym keysym;
   
@@ -212,6 +243,8 @@ static void PlayGame()
   game_end = FALSE;
   confirm_quit = FALSE;
   game_state = STATE_WELCOME;
+  //hiscore = ReadHiScores();
+  //printf("hi scores: %d\n", hiscore);
  
 	while(quit == 0)
   {
@@ -253,10 +286,12 @@ static void PlayGame()
                 InitalizePlayGrid();
                 SpawnNewTetromino();
                 previous_time = SDL_GetTicks();
-                landed_previous_time = SDL_GetTicks();
+                //landed_previous_time = SDL_GetTicks();
                 scores = 0;
                 level = 1; 
                 delay = DELAY_START;
+                hiscore = ReadHiScores();
+                printf("hi scores: %d\n", hiscore);
               }
               else if(game_state == STATE_PLAY)
               {
@@ -324,8 +359,8 @@ static void PlayGame()
       if(timer_running)
       {
         current_time = SDL_GetTicks();
-        landed_current_time = SDL_GetTicks();
-        delay_landed = landed_current_time - landed_previous_time;
+        //landed_current_time = SDL_GetTicks();
+        //delay_landed = landed_current_time - landed_previous_time;
         if(current_time - previous_time >= delay)
         {
           MoveTetrominoDown();
@@ -334,11 +369,13 @@ static void PlayGame()
       }
       DrawBackground();
       DrawGridBlocks();
-      DrawTetromino(); //current tetromino
+      if(!game_end)
+        DrawTetromino(); //current tetromino
       DrawNextTetromino();
-      if(IfTetrominoLanded() && !game_end && delay_landed >= LANDED_DELAY)
+      if(IfTetrominoLanded() && !game_end)
+      //if(IfTetrominoLanded() && !game_end && delay_landed >= LANDED_DELAY)
       {
-        landed_previous_time = landed_current_time;
+        //landed_previous_time = landed_current_time;
         UpdatePlayGrid();
         score_factor = SCORES_PER_LINE;
         //check for line cleared
@@ -382,6 +419,12 @@ static void PlayGame()
       {
 				DrawGameOver();
 				DrawPressA();
+        if(scores > hiscore)
+				{
+					DrawYouGotHighScore();
+					//Save Hi scores here
+          SaveHiScores(scores);
+				}
 			}
 			else if(!timer_running && game_end == GAME_WIN_STATE && !confirm_quit)
       {
@@ -391,6 +434,7 @@ static void PlayGame()
 				{
 					DrawYouGotHighScore();
 					//Save Hi scores here
+          SaveHiScores(scores);
 				}
 			}
 			else if(!timer_running && !game_end && confirm_quit)
@@ -439,8 +483,8 @@ int main(int argc, char **argv)
 	//load game graphics
 	LoadGameGraphics();
   //initalize scores and level
-  scores = 0;
-  level = 1;
+  //scores = 0;
+  //level = 1;
 	//Play game
 	PlayGame();
 	//Free game data
