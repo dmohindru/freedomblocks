@@ -228,7 +228,12 @@ static void SaveHiScores(int hi_scores)
   fprintf(hi_score_file, "%d", hi_scores);
   fclose(hi_score_file);
 }
-
+static int UpdateMusicThread(void *arg)
+{
+  arg++; // avoid compiler warning
+  PlayMusic();
+  return 0;
+}
 static void PlayGame()
 {
 	int quit = 0, lines_cleared, level_lines = 0, 
@@ -238,11 +243,15 @@ static void PlayGame()
 	//unsigned int landed_previous_time, landed_current_time, delay_landed;
   SDL_Event event;
 	SDL_keysym keysym;
-  
+  SDL_Thread *music_update_thread;
   timer_running = FALSE;
   game_end = FALSE;
   confirm_quit = FALSE;
   game_state = STATE_WELCOME;
+  music_update_thread = SDL_CreateThread(UpdateMusicThread, NULL);
+  if (music_update_thread == NULL) 
+    printf("Unable to start music update thread.\n");
+
   //hiscore = ReadHiScores();
   //printf("hi scores: %d\n", hiscore);
  
@@ -482,6 +491,7 @@ int main(int argc, char **argv)
   SDL_WM_SetCaption("Freedom Blocks", "Dhruv Freedom Blocks");
 	//load game graphics
 	LoadGameGraphics();
+  InitMusic();
   //initalize scores and level
   //scores = 0;
   //level = 1;
