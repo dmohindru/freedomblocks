@@ -10,7 +10,7 @@ static char music_buffer[16384];
 static OggVorbis_File vf;
 static vorbis_info *vi;
 static int current_section;
-static ALuint source;
+static ALuint music_source;
 
 
 void LoadGameGraphics()
@@ -139,7 +139,7 @@ void InitMusic()
   ALuint buffers[16];
   alGenBuffers(16, buffers);
 
-  alGenSources (1, &source);
+  alGenSources (1, &music_source);
    
 
   for(i = 0;i<16;++i)
@@ -158,9 +158,9 @@ void InitMusic()
    
     alBufferData(buffers[i], AL_FORMAT_STEREO16, music_buffer, pos, vi->rate);
    }
-   alSourceQueueBuffers(source, 16, buffers);
+   alSourceQueueBuffers(music_source, 16, buffers);
    
-   alSourcePlay(source);
+   alSourcePlay(music_source);
 }
 void PlayMusic()
 {
@@ -170,8 +170,8 @@ void PlayMusic()
   unsigned long pos, ret;
   while(1)
   {
-    alGetSourcei(source, AL_BUFFERS_PROCESSED, &count);
-    alSourceUnqueueBuffers(source, count, released);
+    alGetSourcei(music_source, AL_BUFFERS_PROCESSED, &count);
+    alSourceUnqueueBuffers(music_source, count, released);
     for(i=0;i<count;++i)
     {
       pos = 0;
@@ -194,28 +194,35 @@ void PlayMusic()
       alBufferData(released[i], AL_FORMAT_STEREO16, music_buffer, pos, vi->rate);
    
     }
-    alSourceQueueBuffers(source, count, released);
+    alSourceQueueBuffers(music_source, count, released);
     alutSleep(1/20.);
   }
 }
 void CloseMusic()
 {
-  if (music_enabled) {
-	/* Stop music playback. */
 	alSourceStop(music_source);
 
 	/* Delete the buffer and the source. */
-	alDeleteBuffers(NUM_BUFFERS, music_buffer);
+	//alDeleteBuffers(NUM_BUFFERS, music_buffer);
 	alDeleteSources(1, &music_source);
 	alutExit();
+  ov_clear(&vf);
 	//free(buf);
 	/* Close the music file, if one is open. */
-	if (music_file_loaded) {
-	    ov_clear(&music_file);
-	    music_file_loaded = 0;
-	}
+	//if (music_file_loaded) {
+	//    ov_clear(&vf);
+	//    music_file_loaded = 0;
+	//}
 
-	music_enabled = 0;
-    }
+	//music_enabled = 0;
+  //  }
+}
+void StopMusic()
+{
+  alSourceStop(music_source);
+}
+void StartMusic()
+{
+  alSourcePlay(music_source);
 }
 

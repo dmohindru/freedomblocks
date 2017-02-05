@@ -231,7 +231,15 @@ static void SaveHiScores(int hi_scores)
 static int UpdateMusicThread(void *arg)
 {
   arg++; // avoid compiler warning
-  PlayMusic();
+  //if(music_playing)
+  //{
+    //StartMusic();
+    PlayMusic();
+  //}
+  //else
+  //{
+  //  StopMusic();
+  //}
   return 0;
 }
 static void PlayGame()
@@ -248,6 +256,7 @@ static void PlayGame()
   game_end = FALSE;
   confirm_quit = FALSE;
   game_state = STATE_WELCOME;
+  //music_playing = FALSE;
   music_update_thread = SDL_CreateThread(UpdateMusicThread, NULL);
   if (music_update_thread == NULL) 
     printf("Unable to start music update thread.\n");
@@ -307,11 +316,13 @@ static void PlayGame()
                 if(timer_running && !game_end && !confirm_quit)
                 {
                   timer_running = FALSE;
+                  StopMusic();
                 }
                 else if(!timer_running && !game_end && !confirm_quit)
                 {
                   timer_running = TRUE;
                   previous_time = SDL_GetTicks();
+                  StartMusic();
                 }
                 else if(!timer_running && game_end && !confirm_quit)
                 {
@@ -320,6 +331,7 @@ static void PlayGame()
                 else if(!timer_running && !game_end && confirm_quit)
                 {
                   game_state = STATE_WELCOME;
+                  StartMusic();
                 }
               }
               else if(game_state == STATE_TUTORIAL)
@@ -338,12 +350,14 @@ static void PlayGame()
                 {
                   timer_running = FALSE;
                   confirm_quit = TRUE;
+                  StopMusic();
                 }
                 else if(!timer_running && !game_end && confirm_quit)
                 {
                   timer_running = TRUE;
                   previous_time = SDL_GetTicks();
                   confirm_quit = FALSE;
+                  StartMusic();
                 }
               }
               break;
@@ -372,8 +386,43 @@ static void PlayGame()
         //delay_landed = landed_current_time - landed_previous_time;
         if(current_time - previous_time >= delay)
         {
+          if(IfTetrominoLanded() && !game_end)
+          {
+            UpdatePlayGrid();
+            score_factor = SCORES_PER_LINE;
+            //check for line cleared
+            while((lines_cleared = LinesCleared()))
+            {
+              //printf("lines_cleared: %d\n", lines_cleared);
+              level_lines += lines_cleared;
+              //printf("level_lines: %d\n", level_lines);
+              if(level_lines >= LEVEL_LINES)
+              {
+                level++;
+                level_lines = level_lines - LEVEL_LINES;
+                delay -= NEXT_LEVEL_TIME;
+              }
+              if(level >= MAX_LEVELS)
+              {
+                timer_running = FALSE;
+                game_end = GAME_WIN_STATE;
+                //printf("You win\n");
+              }
+              scores += lines_cleared * score_factor;
+              score_factor += SCORES_BONUS;
+        
+            }
+            if(!SpawnNewTetromino())
+            {
+              timer_running = FALSE;
+              game_end = GAME_OVER_STATE;
+            }
+          }
+          
+          //old me
           MoveTetrominoDown();
           previous_time = current_time;
+          //old me ends
         }
       }
       DrawBackground();
@@ -381,10 +430,9 @@ static void PlayGame()
       if(!game_end)
         DrawTetromino(); //current tetromino
       DrawNextTetromino();
-      if(IfTetrominoLanded() && !game_end)
-      //if(IfTetrominoLanded() && !game_end && delay_landed >= LANDED_DELAY)
+      //i was here
+      /*if(IfTetrominoLanded() && !game_end)
       {
-        //landed_previous_time = landed_current_time;
         UpdatePlayGrid();
         score_factor = SCORES_PER_LINE;
         //check for line cleared
@@ -411,12 +459,11 @@ static void PlayGame()
         }
         if(!SpawnNewTetromino())
         {
-          //printf("Game over!\n");
-          //quit = 1;
           timer_running = FALSE;
           game_end = GAME_OVER_STATE;
         }
-      }
+      }*/
+      //i ended here
     
       DrawScores();
       DrawLevel();
@@ -457,6 +504,8 @@ static void PlayGame()
       DrawWelcomeBackground();
       DrawPressAContinue();
       DrawPressB();
+      //music_playing = TRUE;
+      //StartMusic();
     }
     else if(game_state == STATE_TUTORIAL)
     {
@@ -499,6 +548,7 @@ int main(int argc, char **argv)
 	PlayGame();
 	//Free game data
 	FreeGameGraphics();
+  CloseMusic();
 	
 	return 0;
 }

@@ -14,5 +14,10 @@
 
 void LoadGameGraphics();
 void FreeGameGraphics();
+void InitMusic();
+void PlayMusic();
+void CloseMusic();
+void StartMusic();
+void StopMusic();
 
 #endif
