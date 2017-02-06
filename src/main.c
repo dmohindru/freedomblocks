@@ -245,7 +245,7 @@ static int UpdateMusicThread(void *arg)
 static void PlayGame()
 {
 	int quit = 0, lines_cleared, level_lines = 0, 
-      score_factor, timer_running, confirm_quit, game_end;
+      score_factor, timer_running, confirm_quit, game_end, new_tetromino;
   //int scores, level, game_state, hiscore;
 	unsigned int previous_time, current_time, delay;
 	//unsigned int landed_previous_time, landed_current_time, delay_landed;
@@ -255,6 +255,7 @@ static void PlayGame()
   timer_running = FALSE;
   game_end = FALSE;
   confirm_quit = FALSE;
+  new_tetromino = FALSE;
   game_state = STATE_WELCOME;
   //music_playing = FALSE;
   music_update_thread = SDL_CreateThread(UpdateMusicThread, NULL);
@@ -309,7 +310,7 @@ static void PlayGame()
                 level = 1; 
                 delay = DELAY_START;
                 hiscore = ReadHiScores();
-                printf("hi scores: %d\n", hiscore);
+                //printf("hi scores: %d\n", hiscore);
               }
               else if(game_state == STATE_PLAY)
               {
@@ -416,19 +417,23 @@ static void PlayGame()
             {
               timer_running = FALSE;
               game_end = GAME_OVER_STATE;
+              
             }
+            new_tetromino = TRUE; //attemp to spawn new tetromino has been made
           }
           
-          //old me
-          MoveTetrominoDown();
+          if(new_tetromino)  //If new tetromino as spawned, dont move it
+            new_tetromino = FALSE;
+          else
+            MoveTetrominoDown(); //else move it down
+            
           previous_time = current_time;
-          //old me ends
         }
       }
       DrawBackground();
       DrawGridBlocks();
-      if(!game_end)
-        DrawTetromino(); //current tetromino
+      //if(!game_end)
+      DrawTetromino(); //current tetromino
       DrawNextTetromino();
       //i was here
       /*if(IfTetrominoLanded() && !game_end)
