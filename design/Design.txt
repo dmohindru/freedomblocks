@@ -5,7 +5,7 @@ Graphics
 --------
 1. Game will consist of 16 row and 10 columns
 2. Each square block will be 30 pixel in size.
-3. Game resoution will be 800X600 px.
+3. Game resoution will be 800X600 px. 640X480 px
 4. In game grid and in tetriminos each block will have a space of
 	2 px in between them to give a nice professional look.
 5. Colors of block will be Red, Green, Yellow, Blue
