@@ -13,7 +13,7 @@
    height="315"
    id="svg3853"
    version="1.1"
-   inkscape:version="0.48.4 r9939"
+   inkscape:version="0.48.3.1 r9886"
    sodipodi:docname="messages.svg">
   <defs
      id="defs3855">
@@ -38,10 +38,10 @@
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="1600"
-     inkscape:window-height="846"
+     inkscape:window-width="1920"
+     inkscape:window-height="1026"
      inkscape:window-x="0"
-     inkscape:window-y="27"
+     inkscape:window-y="25"
      inkscape:window-maximized="1" />
   <metadata
      id="metadata3858">
@@ -51,7 +51,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -66,10 +66,16 @@
        width="260"
        height="315"
        x="0.49999994"
-       y="736.86218" />
+       y="736.86218"
+       inkscape:export-filename="/home/dhruv/Programming/freedomblocks/graphics/messages.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <g
        id="g3239"
-       transform="matrix(0.99999997,0,0,0.97944834,1.1975966e-6,-125.64493)">
+       transform="matrix(0.99999997,0,0,0.97944834,1.1975966e-6,-125.64493)"
+       inkscape:export-filename="/home/dhruv/Programming/freedomblocks/graphics/messages.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <text
          transform="scale(1.0005774,0.99942296)"
          sodipodi:linespacing="125%"
@@ -125,7 +131,10 @@
     </g>
     <g
        id="g5195"
-       transform="translate(-0.01754298,0.46001083)">
+       transform="translate(-0.01754298,0.46001083)"
+       inkscape:export-filename="/home/dhruv/Programming/freedomblocks/graphics/messages.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <rect
          ry="10.770121"
          y="877.40393"
@@ -150,32 +159,41 @@
     </g>
     <g
        id="g5200"
-       transform="translate(-0.01754385,0.34856064)">
-      <rect
-         ry="10.770121"
-         y="912.51538"
-         x="5.5193052"
-         height="28.996477"
-         width="133.99648"
-         id="rect3926-1"
-         style="fill:#333333;fill-opacity:1;stroke:#ffffff;stroke-width:1.00352275;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
-      <text
-         transform="scale(1.0009146,0.99908624)"
-         sodipodi:linespacing="125%"
-         id="text3062-3-0-9-9-3"
-         y="934.70422"
-         x="10.219365"
-         style="font-size:18.57614899px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ececec;fill-opacity:1;stroke:none;font-family:Sans"
-         xml:space="preserve"><tspan
-           style="font-weight:bold;fill:#ececec"
-           y="934.70422"
+       transform="translate(-0.01754385,0.34856064)"
+       inkscape:export-filename="/home/dhruv/Programming/freedomblocks/graphics/messages.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <g
+         id="g4835">
+        <rect
+           style="fill:#333333;fill-opacity:1;stroke:#ffffff;stroke-width:1.00352275;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+           id="rect3926-1"
+           width="133.99648"
+           height="28.996477"
+           x="5.5193052"
+           y="912.51538"
+           ry="10.770121" />
+        <text
+           xml:space="preserve"
+           style="font-size:18.57614899px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ececec;fill-opacity:1;stroke:none;font-family:Sans"
            x="10.219365"
-           id="tspan3064-6-2-5-5-8"
-           sodipodi:role="line">GAME OVER</tspan></text>
+           y="934.70422"
+           id="text3062-3-0-9-9-3"
+           sodipodi:linespacing="125%"
+           transform="scale(1.0009146,0.99908624)"><tspan
+             sodipodi:role="line"
+             id="tspan3064-6-2-5-5-8"
+             x="10.219365"
+             y="934.70422"
+             style="font-weight:bold;fill:#ececec">GAME OVER</tspan></text>
+      </g>
     </g>
     <g
        id="g4036"
-       transform="matrix(0.99613347,0,0,0.99677961,0.00380259,3.3774012)">
+       transform="matrix(0.99613347,0,0,0.99677961,0.00380259,3.3774012)"
+       inkscape:export-filename="/home/dhruv/Programming/freedomblocks/graphics/messages.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <rect
          ry="25.71006"
          y="802.06952"
@@ -280,7 +298,10 @@
     </g>
     <g
        id="g4073"
-       transform="matrix(0.99612194,0,0,0.99670802,0.00386033,3.4603536)">
+       transform="matrix(0.99612194,0,0,0.99670802,0.00386033,3.4603536)"
+       inkscape:export-filename="/home/dhruv/Programming/freedomblocks/graphics/messages.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <rect
          ry="10.805733"
          y="1017.7539"
@@ -332,7 +353,10 @@
     </g>
     <g
        id="g3172"
-       transform="matrix(0.99938591,0,0,0.99985727,0.0030704,-27.388407)">
+       transform="matrix(0.99938591,0,0,0.99985727,0.0030704,-27.388407)"
+       inkscape:export-filename="/home/dhruv/Programming/freedomblocks/graphics/messages.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <text
          transform="scale(1.0109482,0.98917035)"
          sodipodi:linespacing="125%"
@@ -385,7 +409,10 @@
     </g>
     <g
        id="g5205"
-       transform="translate(-2.5271769,0.23711044)">
+       transform="translate(-2.5271769,0.23711044)"
+       inkscape:export-filename="/home/dhruv/Programming/freedomblocks/graphics/messages.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <rect
          ry="10.770121"
          y="947.62683"
@@ -410,7 +437,10 @@
     </g>
     <g
        id="g4068"
-       transform="matrix(0.99613716,0,0,0.99670447,0.00378445,3.4598736)">
+       transform="matrix(0.99613716,0,0,0.99670447,0.00378445,3.4598736)"
+       inkscape:export-filename="/home/dhruv/Programming/freedomblocks/graphics/messages.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <rect
          ry="10.805733"
          y="982.6424"

@@ -125,6 +125,7 @@ static short tetrominos[TETROMINO_NUM][TETROMINO_ROTATION][TETROMINO_GRID][TETRO
            {0,0,0,0}}}};
 
 static short play_grid[PLAY_GRID_ROW][PLAY_GRID_COL];
+static int tetromino_stats[TETROMINO_NUM];
 static int cur_row, cur_col, cur_tetromino, cur_rotation, next_tetromino, cur_square, next_square;
 static Sint32 seed = 0;
 static void initrandom()
@@ -180,10 +181,12 @@ void DrawNextTetromino()
   src.y = SQUARE_STARTY;
   dest.w = SQUARE_WIDTH;
   dest.h = SQUARE_WIDTH;
-  row = 0;
+  //row = 0;
+  row = NEXT_TETROMINO_ROW;
   for(i=0;i<TETROMINO_GRID;i++)
   {
-    col = PLAY_GRID_COL + 1;
+    //col = PLAY_GRID_COL + 1;
+    col = NEXT_TETROMINO_COL;
     for(j=0;j<TETROMINO_GRID;j++)
     {
       if(tetrominos[next_tetromino][0][i][j])
@@ -203,11 +206,14 @@ void InitalizePlayGrid()
   for(i=0;i<PLAY_GRID_ROW;i++)
     for(j=0;j<PLAY_GRID_COL;j++)
       play_grid[i][j] = -1;
+  for(i=0;i<TETROMINO_NUM;i++)
+		tetromino_stats[i] = 0;
   initrandom();
   cur_tetromino = 0;
   cur_rotation = 0;
   next_tetromino = getrandom() % TETROMINO_NUM; //next tetromin index
   next_square = getrandom() % NUM_SQUARE;  //square index in data bitmap
+  tetromino_stats[next_tetromino]++;
 }
 int SpawnNewTetromino()
 {
@@ -218,8 +224,9 @@ int SpawnNewTetromino()
   next_square = getrandom() % NUM_SQUARE;  //square index in data bitmap
   cur_rotation = 0; //rotation alway start at 0
   cur_row = -1;
-  cur_col = 3;
-  for(i=0;i<TETROMINO_GRID;i++) //check first row for presence of square
+  cur_col = NEW_TETROMINO_COL;
+  tetromino_stats[next_tetromino]++;
+  for(i=0;i<TETROMINO_GRID;i++) //check first row for presence of I tetromino
   {  
     if(tetrominos[cur_tetromino][cur_rotation][0][i])
     {
@@ -402,4 +409,44 @@ int LinesCleared()
 void MoveTetrominoDown()
 {
   cur_row++;
+}
+void DrawTetrominoStats()
+{
+	
+	SDL_Rect src, dest;
+	int i, j, temp_stats, digit, sum=0;
+  for(j=0;j<TETROMINO_NUM;j++)
+  {
+		temp_stats = tetromino_stats[j];
+		sum += tetromino_stats[j];
+		for(i=GAME_STAT_DIGITS-1;i>=0;i--)
+		{
+			digit = temp_stats % 10;
+			temp_stats /= 10;
+			src.w = FONT_WIDTH;
+			src.h = FONT_HEIGHT;
+			src.x = FONT_STARTX + digit * (FONT_WIDTH + FONT_SPACING);
+			src.y = FONT_STARTY;
+			dest.w = FONT_WIDTH;
+			dest.h = FONT_HEIGHT;
+			dest.x = GAME_STAT_STARTX + i * (FONT_WIDTH + FONT_SPACING);
+			dest.y = GAME_STAT_STARTY + j * (FONT_HEIGHT + GAME_STAT_NEXT);
+			SDL_BlitSurface(gamedata, &src, screen, &dest);
+		}
+	}
+	//Finally draw sum
+	for(i=GAME_STAT_DIGITS-1;i>=0;i--)
+	{
+		digit = sum % 10;
+		sum /= 10;
+		src.w = FONT_WIDTH;
+		src.h = FONT_HEIGHT;
+		src.x = FONT_STARTX + digit * (FONT_WIDTH + FONT_SPACING);
+		src.y = FONT_STARTY;
+		dest.w = FONT_WIDTH;
+		dest.h = FONT_HEIGHT;
+		dest.x = GAME_STAT_STARTX + i * (FONT_WIDTH + FONT_SPACING);
+		dest.y = GAME_STAT_STARTY + j * (FONT_HEIGHT + GAME_STAT_NEXT);
+		SDL_BlitSurface(gamedata, &src, screen, &dest);
+	}
 }

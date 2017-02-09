@@ -13,6 +13,7 @@ void UpdatePlayGrid();
 void MoveTetrominoDown();
 void DrawNextTetromino();
 int LinesCleared();
+void DrawTetrominoStats();
     
 #endif
 

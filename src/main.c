@@ -6,7 +6,7 @@
 #include "resources.h"
 #include "tetromino.h"
 
-static int scores, level, game_state, hiscore;
+static int scores, level, game_state, hiscore, game_lines;
 
 static void DrawBackground()
 {
@@ -76,8 +76,8 @@ static void DrawConfirmQuit()
 	src.y = MESS_QUIT_STARTY;
 	dest.w = MESS_QUIT_WIDTH;
 	dest.h = MESS_QUIT_HEIGHT;
-	dest.x = GAME_STATE_STARTX;
-	dest.y = GAME_STATE_STARTY;
+	dest.x = GAME_QUIT_STARTX;
+	dest.y = GAME_QUIT_STARTY;
 	SDL_BlitSurface(messages, &src, screen, &dest);
 }
 static void DrawYouWin()
@@ -157,12 +157,32 @@ static void DrawTutorialBackground()
 	dest = src;
 	SDL_BlitSurface(tutorial, &src, screen, &dest);
 }
+static void DrawHiScores()
+{
+	SDL_Rect src, dest;
+	int i, temp_scores, digit;
+	temp_scores = hiscore;
+  for(i=SCORES_DIGITS-1;i>=0;i--)
+	{
+		digit = temp_scores % 10;
+    temp_scores /= 10;
+		src.w = FONT_WIDTH;
+		src.h = FONT_HEIGHT;
+		src.x = FONT_STARTX + digit * (FONT_WIDTH + FONT_SPACING);
+		src.y = FONT_STARTY;
+		dest.w = FONT_WIDTH;
+		dest.h = FONT_HEIGHT;
+		dest.x = HI_SCORES_STARTX + i * (FONT_WIDTH + FONT_SPACING);
+		dest.y = HI_SCORES_STARTY;
+		SDL_BlitSurface(gamedata, &src, screen, &dest);
+	}
+}
 static void DrawScores()
 {
 	SDL_Rect src, dest;
 	int i, temp_scores, digit;
 	temp_scores = scores;
-  for(i=3;i>=0;i--)
+  for(i=SCORES_DIGITS-1;i>=0;i--)
 	{
 		digit = temp_scores % 10;
     temp_scores /= 10;
@@ -177,12 +197,33 @@ static void DrawScores()
 		SDL_BlitSurface(gamedata, &src, screen, &dest);
 	}
 }
+
+static void DrawGameLines()
+{
+	SDL_Rect src, dest;
+	int i, temp_scores, digit;
+	temp_scores = game_lines;
+  for(i=LINES_DIGITS-1;i>=0;i--)
+	{
+		digit = temp_scores % 10;
+    temp_scores /= 10;
+		src.w = FONT_WIDTH;
+		src.h = FONT_HEIGHT;
+		src.x = FONT_STARTX + digit * (FONT_WIDTH + FONT_SPACING);
+		src.y = FONT_STARTY;
+		dest.w = FONT_WIDTH;
+		dest.h = FONT_HEIGHT;
+		dest.x = LINES_STARTX + i * (FONT_WIDTH + FONT_SPACING);
+		dest.y = LINES_STARTY;
+		SDL_BlitSurface(gamedata, &src, screen, &dest);
+	}
+}
 static void DrawLevel()
 {
 	SDL_Rect src, dest;
 	int i, temp_level, digit;
   temp_level = level;
-	for(i=1;i>=0;i--)
+	for(i=LEVEL_DIGITS-1;i>=0;i--)
 	{
 		digit = temp_level % 10;
     temp_level /= 10;
@@ -307,7 +348,8 @@ static void PlayGame()
                 previous_time = SDL_GetTicks();
                 //landed_previous_time = SDL_GetTicks();
                 scores = 0;
-                level = 1; 
+                level = 1;
+                game_lines = 0; 
                 delay = DELAY_START;
                 hiscore = ReadHiScores();
                 //printf("hi scores: %d\n", hiscore);
@@ -411,6 +453,7 @@ static void PlayGame()
               }
               scores += lines_cleared * score_factor;
               score_factor += SCORES_BONUS;
+              game_lines += lines_cleared;
         
             }
             if(!SpawnNewTetromino())
@@ -432,46 +475,13 @@ static void PlayGame()
       }
       DrawBackground();
       DrawGridBlocks();
-      //if(!game_end)
       DrawTetromino(); //current tetromino
       DrawNextTetromino();
-      //i was here
-      /*if(IfTetrominoLanded() && !game_end)
-      {
-        UpdatePlayGrid();
-        score_factor = SCORES_PER_LINE;
-        //check for line cleared
-        while((lines_cleared = LinesCleared()))
-        {
-          //printf("lines_cleared: %d\n", lines_cleared);
-          level_lines += lines_cleared;
-          //printf("level_lines: %d\n", level_lines);
-          if(level_lines >= LEVEL_LINES)
-          {
-            level++;
-            level_lines = level_lines - LEVEL_LINES;
-            delay -= NEXT_LEVEL_TIME;
-          }
-          if(level >= MAX_LEVELS)
-          {
-            timer_running = FALSE;
-            game_end = GAME_WIN_STATE;
-            //printf("You win\n");
-          }
-          scores += lines_cleared * score_factor;
-          score_factor += SCORES_BONUS;
-        
-        }
-        if(!SpawnNewTetromino())
-        {
-          timer_running = FALSE;
-          game_end = GAME_OVER_STATE;
-        }
-      }*/
-      //i ended here
-    
       DrawScores();
       DrawLevel();
+      DrawHiScores();
+      DrawGameLines();
+      DrawTetrominoStats();
       if(!timer_running && !game_end && !confirm_quit)
       {
         DrawPaused();
@@ -535,7 +545,7 @@ int main(int argc, char **argv)
     atexit(SDL_Quit);
 
 	// Attempt to set game screen
-	screen = SDL_SetVideoMode(GAME_WIDTH, GAME_HEIGHT, 16, SDL_DOUBLEBUF);
+	screen = SDL_SetVideoMode(GAME_WIDTH, GAME_HEIGHT, 16, SDL_DOUBLEBUF|SDL_FULLSCREEN);
 	if (screen == NULL)
     {
 		printf("Unable to set video mode: %s\n", SDL_GetError());
@@ -543,6 +553,7 @@ int main(int argc, char **argv)
 	}
 	//Set window caption
   SDL_WM_SetCaption("Freedom Blocks", "Dhruv Freedom Blocks");
+  SDL_ShowCursor(SDL_DISABLE);
 	//load game graphics
 	LoadGameGraphics();
   InitMusic();

@@ -13,11 +13,11 @@ SDL_Surface *messages; //Messages screen surface
 SDL_Surface *temp; //temp surface storing game data
 
 //define various games constants 
-#define GAME_WIDTH				800 //Width of game background
-#define GAME_HEIGHT				600 //Height of game background
+#define GAME_WIDTH				640 //Width of game background
+#define GAME_HEIGHT				480 //Height of game background
 
-#define PLAY_GRID_ROW			16 //Number of square logical rows in play grid
-#define PLAY_GRID_COL			10 //Number of square logical cols in play grid
+#define PLAY_GRID_ROW			28 //Number of square logical rows in play grid
+#define PLAY_GRID_COL			12 //Number of square logical cols in play grid
 
 #define TETROMINO_GRID      	4 //size of grid to represent tetromino
 #define TETROMINO_ROTATION  	4 //number of rotation in tetrominos
@@ -36,13 +36,17 @@ SDL_Surface *temp; //temp surface storing game data
 #define SCORES_PER_LINE			10 //Scores per line
 #define SCORES_BONUS			5	//Bonus scores for recussive line completion
 
-#define MAX_LEVELS				10 //Max Levels to call for win
+#define MAX_LEVELS				50 //Max Levels to call for win
 #define LEVEL_LINES				10 //Lines to clear a level
 
 #define GAME_OVER_STATE			1 //Game over state
 #define GAME_WIN_STATE			2 //Game win state
 
 #define HI_SCORE_FILE			"hiscore.txt" //Name of file to store hi scores
+
+#define NEXT_TETROMINO_ROW	2 //Next tetromino row for drawing
+#define NEXT_TETROMINO_COL	-8 //Next tetromino col for drawing
+#define NEW_TETROMINO_COL		4 //Column for new Tetromino
 
 //below are defs with maybe with conditional if for different platforms
 #define LEFT_BUTTON				SDLK_LEFT //SDL left key for linux platform
@@ -59,54 +63,69 @@ SDL_Surface *temp; //temp surface storing game data
 #define STATE_TUTORIAL			3 //Tutorial State in game
 
 //Graphics placement for Main game play screen
-#define TETROMINO_SPACING		2 //Spacing between tetrominos squares
+#define TETROMINO_SPACING		1 //Spacing between tetrominos squares
 
-#define PLAY_GRID_WIDTH			318 //Width of play grid in px
-#define PLAY_GRID_HEIGHT		510 //Height of play grid in px
+//#define PLAY_GRID_WIDTH			318 //Width of play grid in px
+//#define PLAY_GRID_HEIGHT		510 //Height of play grid in px
 
-#define PLAY_GRID_STARTX		300 //Start X for play grid
-#define PLAY_GRID_STARTY		60 //Start Y of play grid
+#define PLAY_GRID_STARTX		225 //Start X for play grid
+#define PLAY_GRID_STARTY		18 //Start Y of play grid
 
-#define SCORES_STARTX			50 //Start X of scores
-#define SCORES_STARTY			150 //Start Y of scores
-#define SCORES_DIGITS			4 //Number of digits in scores
 
-#define LEVEL_STARTX			85 //Start X of level
-#define LEVEL_STARTY			450 //Start Y of level
+#define HI_SCORES_STARTX			83 //Start X of hi scores of game
+#define HI_SCORES_STARTY			195 //Start Y of hi scores of game
+#define SCORES_STARTX			83 //Start X of scores
+#define SCORES_STARTY			280 //Start Y of scores
+#define SCORES_DIGITS			6 //Number of digits in scores
+
+#define LINES_STARTX			93 //Start X of level
+#define LINES_STARTY			365 //Start Y of level
+#define LINES_DIGITS			4 //Number of digits in level
+
+#define LEVEL_STARTX			103 //Start X of level
+#define LEVEL_STARTY			435 //Start Y of level
 #define LEVEL_DIGITS			2 //Number of digits in level
 
-#define HISCORE_STARTX			360 //Start X for Hi Score message
-#define HISCORE_STARTY			210 //Start Y for Hi Score message
+#define HISCORE_STARTX			215 //Start X for Hi Score message
+#define HISCORE_STARTY			130 //Start Y for Hi Score message
 
-#define GAME_STATE_STARTX		400 //Start X for Game State message
-#define GAME_STATE_STARTY		250 //Start X for Game State message
+#define GAME_STATE_STARTX		253 //Start X for Game State message
+#define GAME_STATE_STARTY		165 //Start X for Game State message
 
-#define PRESSA_STARTX			405 //Start X for Press A message
-#define PRESSA_STARTY			290 //Start X for Press A message
+#define GAME_QUIT_STARTX		235//Start X for Game Quit message
+#define GAME_QUIT_STARTY		125//Start Y for Game Quit message
+
+#define PRESSA_STARTX			265 //Start X for Press A message
+#define PRESSA_STARTY			200 //Start X for Press A message
+
+#define GAME_STAT_STARTX	550 //Start X for game statistics
+#define GAME_STAT_STARTY	100 //Start Y for game statistics
+#define GAME_STAT_NEXT		30 //Y offset for next tetromino statistics
+#define GAME_STAT_DIGITS	3 //No of digits in tetromino stats
 
 //Graphics placement for Welcome screen
-#define WSCR_PRESSA_STARTX		275 //Start X for Press A message on Welcome Screen
-#define WSCR_PRESSA_STARTY		375 //Start Y for Press A message on Welcome Screen
+#define WSCR_PRESSA_STARTX		200 //Start X for Press A message on Welcome Screen
+#define WSCR_PRESSA_STARTY		255 //Start Y for Press A message on Welcome Screen
 
-#define WSCR_PRESSB_STARTX		275 //Start X for Press B message on Welcome Screen
-#define WSCR_PRESSB_STARTY		550 //Start Y for Press B message on Welcome Screen
+#define WSCR_PRESSB_STARTX		200 //Start X for Press B message on Welcome Screen
+#define WSCR_PRESSB_STARTY		405 //Start Y for Press B message on Welcome Screen
 
 //Graphics placement for Tutorial screen
-#define TSCR_PRESSA_STARTX		275 //Start X for Press A message on Tutorial Screen
-#define TSCR_PRESSA_STARTY		530 //Start Y for Press A message on Tutorial Screen 
+#define TSCR_PRESSA_STARTX		200 //Start X for Press A message on Tutorial Screen
+#define TSCR_PRESSA_STARTY		410 //Start Y for Press A message on Tutorial Screen 
 
 //Graphics placement in Data bitmap
 #define FONT_STARTX				5 //Start X for fonts in game data bitmap
-#define FONT_STARTY				50 //Start Y for fonts in game data bitmap
-#define FONT_WIDTH				30 //Width of fonts used in games
-#define FONT_HEIGHT				50 //Height of fonts used in games
-#define FONT_SPACING			5 //Spacing between font
+#define FONT_STARTY				25 //Start Y for fonts in game data bitmap
+#define FONT_WIDTH				10 //Width of fonts used in games
+#define FONT_HEIGHT				15 //Height of fonts used in games
+#define FONT_SPACING			2 //Spacing between font
 
 #define SQUARE_STARTX			5 //Start X for squares in game data bitmap
-#define SQUARE_STARTY			10 //Start Y for squares in game data bitmap
+#define SQUARE_STARTY			5 //Start Y for squares in game data bitmap
 #define SQUARE_SPACING			5 //Spacing between colored squares in data bitmap
 #define NUM_SQUARE				4 //Number of squares in our data bitmap
-#define SQUARE_WIDTH			30 //Width of tetromino square
+#define SQUARE_WIDTH			15 //Width of tetromino square
 
 //Graphics placement in message bitmap
 #define MESS_PRESSA_BIG_STARTX 	5 //Start X for Press A Big message
@@ -126,7 +145,7 @@ SDL_Surface *temp; //temp surface storing game data
 
 #define MESS_YOUWIN_STARTX 		5 //Start X for You Win message
 #define MESS_YOUWIN_STARTY 		140 //Start Y for You Win message
-#define MESS_YOUWIN_WIDTH		110 //Width of You Win message
+#define MESS_YOUWIN_WIDTH		135 //Width of You Win message
 #define MESS_YOUWIN_HEIGHT		30 //Height of You Win message
 
 #define MESS_GAMEOVER_STARTX	5 //Start X for Game Over message
@@ -136,7 +155,7 @@ SDL_Surface *temp; //temp surface storing game data
 
 #define MESS_PAUSED_STARTX		5 //Start X for Paused message
 #define MESS_PAUSED_STARTY		210 //Start Y for Paused message
-#define MESS_PAUSED_WIDTH		90 //Width of Paused message
+#define MESS_PAUSED_WIDTH		135 //Width of Paused message
 #define MESS_PAUSED_HEIGHT		30 //Height of Paused message
 
 #define MESS_HISCORE_STARTX		5 //Start X for Hi Score message
