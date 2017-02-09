@@ -26,7 +26,7 @@
      inkscape:pageshadow="2"
      inkscape:zoom="0.98994949"
      inkscape:cx="207.17073"
-     inkscape:cy="269.27561"
+     inkscape:cy="309.68171"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -53,394 +53,392 @@
      id="layer1"
      transform="translate(0,-452.36218)">
     <g
-       id="g3869">
-      <g
-         transform="matrix(0.99938591,0,0,1,270.00307,217.49998)"
-         id="g3172">
-        <text
-           xml:space="preserve"
-           style="font-size:18.32104301px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ececec;fill-opacity:1;stroke:none;font-family:Sans"
+       id="g3172"
+       transform="matrix(0.99938591,0,0,1,270.00307,217.49998)"
+       style="fill:#e6e6e6">
+      <text
+         transform="scale(1.0109482,0.98917035)"
+         sodipodi:linespacing="125%"
+         id="text3062-3-0-9-7"
+         y="796.80432"
+         x="3.2640374"
+         style="font-size:18.32104301000000035px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#e6e6e6;fill-opacity:1;stroke:none;font-family:Sans"
+         xml:space="preserve"><tspan
+           style="font-weight:bold;fill:#e6e6e6"
+           y="796.80432"
            x="3.2640374"
+           id="tspan3064-6-2-5-8"
+           sodipodi:role="line">PRESS</tspan></text>
+      <text
+         transform="scale(1.0109482,0.98917033)"
+         sodipodi:linespacing="125%"
+         id="text3062-3-0-5-0-5"
+         y="796.80432"
+         x="102.96464"
+         style="font-size:18.32104301000000035px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#e6e6e6;fill-opacity:1;stroke:none;font-family:Sans"
+         xml:space="preserve"><tspan
+           style="font-weight:bold;fill:#e6e6e6"
            y="796.80432"
-           id="text3062-3-0-9-7"
-           sodipodi:linespacing="125%"
-           transform="scale(1.0109482,0.98917035)"><tspan
-             sodipodi:role="line"
-             id="tspan3064-6-2-5-8"
-             x="3.2640374"
-             y="796.80432"
-             style="font-weight:bold;fill:#ececec">PRESS</tspan></text>
-        <text
-           xml:space="preserve"
-           style="font-size:18.32104301px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ececec;fill-opacity:1;stroke:none;font-family:Sans"
            x="102.96464"
-           y="796.80432"
-           id="text3062-3-0-5-0-5"
-           sodipodi:linespacing="125%"
-           transform="scale(1.0109482,0.98917033)"><tspan
-             sodipodi:role="line"
-             id="tspan3064-6-2-4-4-3"
-             x="102.96464"
-             y="796.80432"
-             style="font-weight:bold;fill:#ececec">TO CONTINUE</tspan></text>
-        <text
-           xml:space="preserve"
-           style="font-size:18.13373566px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ececec;fill-opacity:1;stroke:none;font-family:Sans"
-           x="78.796532"
+           id="tspan3064-6-2-4-4-3"
+           sodipodi:role="line">TO CONTINUE</tspan></text>
+      <text
+         transform="scale(1.0109482,0.98917033)"
+         sodipodi:linespacing="125%"
+         id="text3062-3-0-1-6-3"
+         y="797.06372"
+         x="78.796532"
+         style="font-size:18.13373565999999926px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#e6e6e6;fill-opacity:1;stroke:none;font-family:Sans"
+         xml:space="preserve"><tspan
+           style="font-weight:bold;fill:#e6e6e6"
            y="797.06372"
-           id="text3062-3-0-1-6-3"
-           sodipodi:linespacing="125%"
-           transform="scale(1.0109482,0.98917033)"><tspan
-             sodipodi:role="line"
-             id="tspan3064-6-2-0-0-4"
-             x="78.796532"
-             y="797.06372"
-             style="font-weight:bold;fill:#ececec">A</tspan></text>
+           x="78.796532"
+           id="tspan3064-6-2-0-0-4"
+           sodipodi:role="line">A</tspan></text>
+      <path
+         transform="matrix(0.46695963,0,0,0.45690037,50.020885,630.06828)"
+         d="m 105.05587,333.31973 c 0,14.50519 -11.758782,26.26397 -26.263969,26.26397 -14.505188,0 -26.263966,-11.75878 -26.263966,-26.26397 0,-14.50519 11.758778,-26.26396 26.263966,-26.26396 14.505187,0 26.263969,11.75877 26.263969,26.26396 z"
+         sodipodi:ry="26.263966"
+         sodipodi:rx="26.263966"
+         sodipodi:cy="333.31973"
+         sodipodi:cx="78.791901"
+         id="path3787-7-3"
+         style="fill:#e6e6e6;stroke:#ffffff;stroke-width:2.16562343000000013;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         sodipodi:type="arc" />
+    </g>
+    <rect
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect4113"
+       width="799"
+       height="599"
+       x="0.5"
+       y="452.86218" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ececec;fill-opacity:1;stroke:none;font-family:Sans"
+       x="69.804688"
+       y="538.07648"
+       id="text3104"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3106"
+         x="69.804688"
+         y="538.07648"
+         style="font-weight:bold">TUTORIAL</tspan></text>
+    <g
+       id="g3179"
+       transform="translate(-21.248604,0)">
+      <g
+         transform="matrix(0.39533241,0,0,0.39533241,71.200671,302.92194)"
+         id="g3100">
+        <path
+           sodipodi:type="star"
+           style="fill:#e6e6e6;fill-opacity:1;stroke:#ffffff;stroke-width:2.66131687;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+           id="path3089"
+           sodipodi:sides="3"
+           sodipodi:cx="121.42857"
+           sodipodi:cy="277.14285"
+           sodipodi:r1="31.983732"
+           sodipodi:r2="15.991867"
+           sodipodi:arg1="0.52359878"
+           sodipodi:arg2="1.5707963"
+           inkscape:flatsided="true"
+           inkscape:rounded="0"
+           inkscape:randomized="0"
+           d="m 149.1273,293.13472 -55.397451,0 27.698721,-47.9756 z"
+           transform="matrix(0.88451726,-0.44225863,0.51067628,0.76601442,127.89738,568.76959)"
+           inkscape:transform-center-x="-8.1666662" />
+        <rect
+           style="fill:#e6e6e6;fill-opacity:1;stroke:#ffffff;stroke-width:2.5295167;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+           id="rect3098"
+           width="97.85714"
+           height="19"
+           x="261.28571"
+           y="717.86218" />
+      </g>
+      <text
+         sodipodi:linespacing="125%"
+         id="text3108"
+         y="597.07898"
+         x="89.285713"
+         style="font-size:20px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ececec;fill-opacity:1;stroke:none;font-family:Sans"
+         xml:space="preserve"><tspan
+           y="597.07898"
+           x="89.285713"
+           id="tspan3110"
+           sodipodi:role="line">PRESS</tspan></text>
+      <text
+         transform="scale(0.99999781,1.0000022)"
+         sodipodi:linespacing="125%"
+         id="text3108-1"
+         y="597.0777"
+         x="249.99249"
+         style="font-size:19.99995613px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ececec;fill-opacity:1;stroke:none;font-family:Sans"
+         xml:space="preserve"><tspan
+           y="597.0777"
+           x="249.99249"
+           id="tspan3110-5"
+           sodipodi:role="line">KEY TO MOVE TETROMINO RIGHT</tspan></text>
+    </g>
+    <g
+       id="g3234"
+       transform="translate(0,-2.7342224)">
+      <g
+         transform="matrix(-0.39533241,0,0,-0.39533241,315.1354,942.25487)"
+         id="g3100-1">
+        <path
+           sodipodi:type="star"
+           style="fill:#e6e6e6;fill-opacity:1;stroke:#ffffff;stroke-width:2.66131687;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+           id="path3089-9"
+           sodipodi:sides="3"
+           sodipodi:cx="121.42857"
+           sodipodi:cy="277.14285"
+           sodipodi:r1="31.983732"
+           sodipodi:r2="15.991867"
+           sodipodi:arg1="0.52359878"
+           sodipodi:arg2="1.5707963"
+           inkscape:flatsided="true"
+           inkscape:rounded="0"
+           inkscape:randomized="0"
+           d="m 149.1273,293.13472 -55.397451,0 27.698721,-47.9756 z"
+           transform="matrix(0.88451726,-0.44225863,0.51067628,0.76601442,127.89738,568.76959)"
+           inkscape:transform-center-x="-8.1666662" />
+        <rect
+           style="fill:#e6e6e6;fill-opacity:1;stroke:#ffffff;stroke-width:2.5295167;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+           id="rect3098-4"
+           width="97.85714"
+           height="19"
+           x="261.28571"
+           y="717.86218" />
+      </g>
+      <text
+         sodipodi:linespacing="125%"
+         id="text3108-8"
+         y="661.31226"
+         x="68.037109"
+         style="font-size:20px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ececec;fill-opacity:1;stroke:none;font-family:Sans"
+         xml:space="preserve"><tspan
+           y="661.31226"
+           x="68.037109"
+           id="tspan3110-9"
+           sodipodi:role="line">PRESS</tspan></text>
+      <text
+         transform="scale(0.99999781,1.0000022)"
+         sodipodi:linespacing="125%"
+         id="text3108-1-9"
+         y="661.31079"
+         x="228.74385"
+         style="font-size:19.99995613px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ececec;fill-opacity:1;stroke:none;font-family:Sans"
+         xml:space="preserve"><tspan
+           y="661.31079"
+           x="228.74385"
+           id="tspan3110-5-6"
+           sodipodi:role="line">KEY TO MOVE TETROMINO LEFT</tspan></text>
+    </g>
+    <g
+       id="g3289"
+       transform="translate(0,12.287811)">
+      <g
+         transform="matrix(0,-0.28443896,0.28443896,0,-27.203554,807.97411)"
+         id="g3100-1-4">
+        <path
+           sodipodi:type="star"
+           style="fill:#e6e6e6;fill-opacity:1;stroke:#ffffff;stroke-width:3.69887733;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+           id="path3089-9-0"
+           sodipodi:sides="3"
+           sodipodi:cx="121.42857"
+           sodipodi:cy="277.14285"
+           sodipodi:r1="31.983732"
+           sodipodi:r2="15.991867"
+           sodipodi:arg1="0.52359878"
+           sodipodi:arg2="1.5707963"
+           inkscape:flatsided="true"
+           inkscape:rounded="0"
+           inkscape:randomized="0"
+           d="m 149.1273,293.13472 -55.397451,0 27.698721,-47.9756 z"
+           transform="matrix(0.88451726,-0.44225863,0.51067628,0.76601442,127.89738,568.76959)"
+           inkscape:transform-center-x="-8.1666662" />
+        <rect
+           style="fill:#e6e6e6;fill-opacity:1;stroke:#ffffff;stroke-width:3.51569247;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+           id="rect3098-4-2"
+           width="97.85714"
+           height="19"
+           x="261.28571"
+           y="717.86218" />
+      </g>
+      <text
+         sodipodi:linespacing="125%"
+         id="text3108-8-5"
+         y="728.25513"
+         x="68.037109"
+         style="font-size:20px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ececec;fill-opacity:1;stroke:none;font-family:Sans"
+         xml:space="preserve"><tspan
+           y="728.25513"
+           x="68.037109"
+           id="tspan3110-9-8"
+           sodipodi:role="line">PRESS</tspan></text>
+      <text
+         transform="scale(0.99999781,1.0000022)"
+         sodipodi:linespacing="125%"
+         id="text3108-1-9-0"
+         y="728.25354"
+         x="228.74385"
+         style="font-size:19.99995613px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ececec;fill-opacity:1;stroke:none;font-family:Sans"
+         xml:space="preserve"><tspan
+           y="728.25354"
+           x="228.74385"
+           id="tspan3110-5-6-4"
+           sodipodi:role="line">KEY TO ROTATE TETROMINO</tspan></text>
+    </g>
+    <g
+       id="g3344"
+       transform="translate(0,14)">
+      <g
+         transform="matrix(0,0.28443896,-0.28443896,0,386.57673,676.96338)"
+         id="g3100-1-4-9">
+        <path
+           sodipodi:type="star"
+           style="fill:#e6e6e6;fill-opacity:1;stroke:#ffffff;stroke-width:3.69887733;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+           id="path3089-9-0-8"
+           sodipodi:sides="3"
+           sodipodi:cx="121.42857"
+           sodipodi:cy="277.14285"
+           sodipodi:r1="31.983732"
+           sodipodi:r2="15.991867"
+           sodipodi:arg1="0.52359878"
+           sodipodi:arg2="1.5707963"
+           inkscape:flatsided="true"
+           inkscape:rounded="0"
+           inkscape:randomized="0"
+           d="m 149.1273,293.13472 -55.397451,0 27.698721,-47.9756 z"
+           transform="matrix(0.88451726,-0.44225863,0.51067628,0.76601442,127.89738,568.76959)"
+           inkscape:transform-center-x="-8.1666662" />
+        <rect
+           style="fill:#e6e6e6;fill-opacity:1;stroke:#ffffff;stroke-width:3.51569247;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+           id="rect3098-4-2-7"
+           width="97.85714"
+           height="19"
+           x="261.28571"
+           y="717.86218" />
+      </g>
+      <text
+         sodipodi:linespacing="125%"
+         id="text3108-8-5-2"
+         y="788.04199"
+         x="68.037109"
+         style="font-size:20px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ececec;fill-opacity:1;stroke:none;font-family:Sans"
+         xml:space="preserve"><tspan
+           y="788.04199"
+           x="68.037109"
+           id="tspan3110-9-8-4"
+           sodipodi:role="line">PRESS</tspan></text>
+      <text
+         transform="scale(0.99999781,1.0000022)"
+         sodipodi:linespacing="125%"
+         id="text3108-1-9-0-1"
+         y="788.04028"
+         x="228.74385"
+         style="font-size:19.99995613px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ececec;fill-opacity:1;stroke:none;font-family:Sans"
+         xml:space="preserve"><tspan
+           y="788.04028"
+           x="228.74385"
+           id="tspan3110-5-6-4-2"
+           sodipodi:role="line">KEY TO LAND TETROMINO</tspan></text>
+    </g>
+    <g
+       id="g3470">
+      <text
+         sodipodi:linespacing="125%"
+         id="text3108-8-5-2-7"
+         y="868.75629"
+         x="68.037109"
+         style="font-size:20px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ececec;fill-opacity:1;stroke:none;font-family:Sans"
+         xml:space="preserve"><tspan
+           y="868.75629"
+           x="68.037109"
+           id="tspan3110-9-8-4-4"
+           sodipodi:role="line">PRESS</tspan></text>
+      <text
+         transform="scale(0.99999781,1.0000022)"
+         sodipodi:linespacing="125%"
+         id="text3108-1-9-0-1-5"
+         y="868.75439"
+         x="228.74385"
+         style="font-size:19.99995613px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ececec;fill-opacity:1;stroke:none;font-family:Sans"
+         xml:space="preserve"><tspan
+           y="868.75439"
+           x="228.74385"
+           id="tspan3110-5-6-4-2-8"
+           sodipodi:role="line">KEY TO PAUSE GAME</tspan></text>
+      <g
+         transform="translate(12,0)"
+         id="g3465">
         <path
            sodipodi:type="arc"
-           style="fill:none;stroke:#ffffff;stroke-width:2.16562343;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-           id="path3787-7-3"
+           style="fill:none;stroke:#ffffff;stroke-width:1.82849753;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+           id="path3787"
            sodipodi:cx="78.791901"
            sodipodi:cy="333.31973"
            sodipodi:rx="26.263966"
            sodipodi:ry="26.263966"
            d="m 105.05587,333.31973 c 0,14.50519 -11.758782,26.26397 -26.263969,26.26397 -14.505188,0 -26.263966,-11.75878 -26.263966,-26.26397 0,-14.50519 11.758778,-26.26396 26.263966,-26.26396 14.505187,0 26.263969,11.75877 26.263969,26.26396 z"
-           transform="matrix(0.46695963,0,0,0.45690037,50.020885,630.06828)" />
-      </g>
-      <rect
-         y="452.86218"
-         x="0.5"
-         height="599"
-         width="799"
-         id="rect4113"
-         style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
-      <text
-         sodipodi:linespacing="125%"
-         id="text3104"
-         y="538.07648"
-         x="69.804688"
-         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ececec;fill-opacity:1;stroke:none;font-family:Sans"
-         xml:space="preserve"><tspan
-           style="font-weight:bold"
-           y="538.07648"
-           x="69.804688"
-           id="tspan3106"
-           sodipodi:role="line">TUTORIAL</tspan></text>
-      <g
-         transform="translate(-21.248604,0)"
-         id="g3179">
-        <g
-           id="g3100"
-           transform="matrix(0.39533241,0,0,0.39533241,71.200671,302.92194)">
-          <path
-             inkscape:transform-center-x="-8.1666662"
-             transform="matrix(0.88451726,-0.44225863,0.51067628,0.76601442,127.89738,568.76959)"
-             d="m 149.1273,293.13472 -55.397451,0 27.698721,-47.9756 z"
-             inkscape:randomized="0"
-             inkscape:rounded="0"
-             inkscape:flatsided="true"
-             sodipodi:arg2="1.5707963"
-             sodipodi:arg1="0.52359878"
-             sodipodi:r2="15.991867"
-             sodipodi:r1="31.983732"
-             sodipodi:cy="277.14285"
-             sodipodi:cx="121.42857"
-             sodipodi:sides="3"
-             id="path3089"
-             style="fill:#e6e6e6;fill-opacity:1;stroke:#ffffff;stroke-width:2.66131687;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-             sodipodi:type="star" />
-          <rect
-             y="717.86218"
-             x="261.28571"
-             height="19"
-             width="97.85714"
-             id="rect3098"
-             style="fill:#e6e6e6;fill-opacity:1;stroke:#ffffff;stroke-width:2.5295167;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
-        </g>
+           transform="matrix(0.55043667,0,0,0.54338019,124.06608,681.72833)" />
         <text
            xml:space="preserve"
            style="font-size:20px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ececec;fill-opacity:1;stroke:none;font-family:Sans"
-           x="89.285713"
-           y="597.07898"
-           id="text3108"
+           x="159.99205"
+           y="869.03918"
+           id="text3108-8-5-2-7-5"
            sodipodi:linespacing="125%"><tspan
              sodipodi:role="line"
-             id="tspan3110"
-             x="89.285713"
-             y="597.07898">PRESS</tspan></text>
-        <text
-           xml:space="preserve"
-           style="font-size:19.99995613px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ececec;fill-opacity:1;stroke:none;font-family:Sans"
-           x="249.99249"
-           y="597.0777"
-           id="text3108-1"
-           sodipodi:linespacing="125%"
-           transform="scale(0.99999781,1.0000022)"><tspan
-             sodipodi:role="line"
-             id="tspan3110-5"
-             x="249.99249"
-             y="597.0777">KEY TO MOVE TETROMINO RIGHT</tspan></text>
-      </g>
-      <g
-         transform="translate(0,-2.7342224)"
-         id="g3234">
-        <g
-           id="g3100-1"
-           transform="matrix(-0.39533241,0,0,-0.39533241,315.1354,942.25487)">
-          <path
-             inkscape:transform-center-x="-8.1666662"
-             transform="matrix(0.88451726,-0.44225863,0.51067628,0.76601442,127.89738,568.76959)"
-             d="m 149.1273,293.13472 -55.397451,0 27.698721,-47.9756 z"
-             inkscape:randomized="0"
-             inkscape:rounded="0"
-             inkscape:flatsided="true"
-             sodipodi:arg2="1.5707963"
-             sodipodi:arg1="0.52359878"
-             sodipodi:r2="15.991867"
-             sodipodi:r1="31.983732"
-             sodipodi:cy="277.14285"
-             sodipodi:cx="121.42857"
-             sodipodi:sides="3"
-             id="path3089-9"
-             style="fill:#e6e6e6;fill-opacity:1;stroke:#ffffff;stroke-width:2.66131687;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-             sodipodi:type="star" />
-          <rect
-             y="717.86218"
-             x="261.28571"
-             height="19"
-             width="97.85714"
-             id="rect3098-4"
-             style="fill:#e6e6e6;fill-opacity:1;stroke:#ffffff;stroke-width:2.5295167;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
-        </g>
-        <text
-           xml:space="preserve"
-           style="font-size:20px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ececec;fill-opacity:1;stroke:none;font-family:Sans"
-           x="68.037109"
-           y="661.31226"
-           id="text3108-8"
-           sodipodi:linespacing="125%"><tspan
-             sodipodi:role="line"
-             id="tspan3110-9"
-             x="68.037109"
-             y="661.31226">PRESS</tspan></text>
-        <text
-           xml:space="preserve"
-           style="font-size:19.99995613px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ececec;fill-opacity:1;stroke:none;font-family:Sans"
-           x="228.74385"
-           y="661.31079"
-           id="text3108-1-9"
-           sodipodi:linespacing="125%"
-           transform="scale(0.99999781,1.0000022)"><tspan
-             sodipodi:role="line"
-             id="tspan3110-5-6"
-             x="228.74385"
-             y="661.31079">KEY TO MOVE TETROMINO LEFT</tspan></text>
-      </g>
-      <g
-         transform="translate(0,12.287811)"
-         id="g3289">
-        <g
-           id="g3100-1-4"
-           transform="matrix(0,-0.28443896,0.28443896,0,-27.203554,807.97411)">
-          <path
-             inkscape:transform-center-x="-8.1666662"
-             transform="matrix(0.88451726,-0.44225863,0.51067628,0.76601442,127.89738,568.76959)"
-             d="m 149.1273,293.13472 -55.397451,0 27.698721,-47.9756 z"
-             inkscape:randomized="0"
-             inkscape:rounded="0"
-             inkscape:flatsided="true"
-             sodipodi:arg2="1.5707963"
-             sodipodi:arg1="0.52359878"
-             sodipodi:r2="15.991867"
-             sodipodi:r1="31.983732"
-             sodipodi:cy="277.14285"
-             sodipodi:cx="121.42857"
-             sodipodi:sides="3"
-             id="path3089-9-0"
-             style="fill:#e6e6e6;fill-opacity:1;stroke:#ffffff;stroke-width:3.69887733;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-             sodipodi:type="star" />
-          <rect
-             y="717.86218"
-             x="261.28571"
-             height="19"
-             width="97.85714"
-             id="rect3098-4-2"
-             style="fill:#e6e6e6;fill-opacity:1;stroke:#ffffff;stroke-width:3.51569247;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
-        </g>
-        <text
-           xml:space="preserve"
-           style="font-size:20px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ececec;fill-opacity:1;stroke:none;font-family:Sans"
-           x="68.037109"
-           y="728.25513"
-           id="text3108-8-5"
-           sodipodi:linespacing="125%"><tspan
-             sodipodi:role="line"
-             id="tspan3110-9-8"
-             x="68.037109"
-             y="728.25513">PRESS</tspan></text>
-        <text
-           xml:space="preserve"
-           style="font-size:19.99995613px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ececec;fill-opacity:1;stroke:none;font-family:Sans"
-           x="228.74385"
-           y="728.25354"
-           id="text3108-1-9-0"
-           sodipodi:linespacing="125%"
-           transform="scale(0.99999781,1.0000022)"><tspan
-             sodipodi:role="line"
-             id="tspan3110-5-6-4"
-             x="228.74385"
-             y="728.25354">KEY TO ROTATE TETROMINO</tspan></text>
-      </g>
-      <g
-         transform="translate(0,14)"
-         id="g3344">
-        <g
-           id="g3100-1-4-9"
-           transform="matrix(0,0.28443896,-0.28443896,0,386.57673,676.96338)">
-          <path
-             inkscape:transform-center-x="-8.1666662"
-             transform="matrix(0.88451726,-0.44225863,0.51067628,0.76601442,127.89738,568.76959)"
-             d="m 149.1273,293.13472 -55.397451,0 27.698721,-47.9756 z"
-             inkscape:randomized="0"
-             inkscape:rounded="0"
-             inkscape:flatsided="true"
-             sodipodi:arg2="1.5707963"
-             sodipodi:arg1="0.52359878"
-             sodipodi:r2="15.991867"
-             sodipodi:r1="31.983732"
-             sodipodi:cy="277.14285"
-             sodipodi:cx="121.42857"
-             sodipodi:sides="3"
-             id="path3089-9-0-8"
-             style="fill:#e6e6e6;fill-opacity:1;stroke:#ffffff;stroke-width:3.69887733;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-             sodipodi:type="star" />
-          <rect
-             y="717.86218"
-             x="261.28571"
-             height="19"
-             width="97.85714"
-             id="rect3098-4-2-7"
-             style="fill:#e6e6e6;fill-opacity:1;stroke:#ffffff;stroke-width:3.51569247;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
-        </g>
-        <text
-           xml:space="preserve"
-           style="font-size:20px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ececec;fill-opacity:1;stroke:none;font-family:Sans"
-           x="68.037109"
-           y="788.04199"
-           id="text3108-8-5-2"
-           sodipodi:linespacing="125%"><tspan
-             sodipodi:role="line"
-             id="tspan3110-9-8-4"
-             x="68.037109"
-             y="788.04199">PRESS</tspan></text>
-        <text
-           xml:space="preserve"
-           style="font-size:19.99995613px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ececec;fill-opacity:1;stroke:none;font-family:Sans"
-           x="228.74385"
-           y="788.04028"
-           id="text3108-1-9-0-1"
-           sodipodi:linespacing="125%"
-           transform="scale(0.99999781,1.0000022)"><tspan
-             sodipodi:role="line"
-             id="tspan3110-5-6-4-2"
-             x="228.74385"
-             y="788.04028">KEY TO LAND TETROMINO</tspan></text>
-      </g>
-      <g
-         id="g3470">
-        <text
-           xml:space="preserve"
-           style="font-size:20px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ececec;fill-opacity:1;stroke:none;font-family:Sans"
-           x="68.037109"
-           y="868.75629"
-           id="text3108-8-5-2-7"
-           sodipodi:linespacing="125%"><tspan
-             sodipodi:role="line"
-             id="tspan3110-9-8-4-4"
-             x="68.037109"
-             y="868.75629">PRESS</tspan></text>
-        <text
-           xml:space="preserve"
-           style="font-size:19.99995613px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ececec;fill-opacity:1;stroke:none;font-family:Sans"
-           x="228.74385"
-           y="868.75439"
-           id="text3108-1-9-0-1-5"
-           sodipodi:linespacing="125%"
-           transform="scale(0.99999781,1.0000022)"><tspan
-             sodipodi:role="line"
-             id="tspan3110-5-6-4-2-8"
-             x="228.74385"
-             y="868.75439">KEY TO PAUSE GAME</tspan></text>
-        <g
-           id="g3465"
-           transform="translate(12,0)">
-          <path
-             transform="matrix(0.55043667,0,0,0.54338019,124.06608,681.72833)"
-             d="m 105.05587,333.31973 c 0,14.50519 -11.758782,26.26397 -26.263969,26.26397 -14.505188,0 -26.263966,-11.75878 -26.263966,-26.26397 0,-14.50519 11.758778,-26.26396 26.263966,-26.26396 14.505187,0 26.263969,11.75877 26.263969,26.26396 z"
-             sodipodi:ry="26.263966"
-             sodipodi:rx="26.263966"
-             sodipodi:cy="333.31973"
-             sodipodi:cx="78.791901"
-             id="path3787"
-             style="fill:none;stroke:#ffffff;stroke-width:1.82849753;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-             sodipodi:type="arc" />
-          <text
-             sodipodi:linespacing="125%"
-             id="text3108-8-5-2-7-5"
-             y="869.03918"
+             id="tspan3110-9-8-4-4-5"
              x="159.99205"
-             style="font-size:20px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ececec;fill-opacity:1;stroke:none;font-family:Sans"
-             xml:space="preserve"><tspan
-               y="869.03918"
-               x="159.99205"
-               id="tspan3110-9-8-4-4-5"
-               sodipodi:role="line">A</tspan></text>
-        </g>
+             y="869.03918">A</tspan></text>
       </g>
-      <text
-         sodipodi:linespacing="125%"
-         id="text3108-8-5-2-7-4"
-         y="926.37079"
-         x="68.037109"
-         style="font-size:20px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ececec;fill-opacity:1;stroke:none;font-family:Sans"
-         xml:space="preserve"><tspan
-           y="926.37079"
-           x="68.037109"
-           id="tspan3110-9-8-4-4-6"
-           sodipodi:role="line">PRESS</tspan></text>
-      <text
-         transform="scale(0.99999781,1.0000022)"
-         sodipodi:linespacing="125%"
-         id="text3108-1-9-0-1-5-3"
-         y="926.36877"
-         x="228.74385"
-         style="font-size:19.99995613px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ececec;fill-opacity:1;stroke:none;font-family:Sans"
-         xml:space="preserve"><tspan
-           y="926.36877"
-           x="228.74385"
-           id="tspan3110-5-6-4-2-8-2"
-           sodipodi:role="line">KEY TO EXIT GAME</tspan></text>
-      <path
-         transform="matrix(0.55043667,0,0,0.54338019,136.06608,739.34284)"
-         d="m 105.05587,333.31973 a 26.263966,26.263966 0 1 1 -52.527935,0 26.263966,26.263966 0 1 1 52.527935,0 z"
-         sodipodi:ry="26.263966"
-         sodipodi:rx="26.263966"
-         sodipodi:cy="333.31973"
-         sodipodi:cx="78.791901"
-         id="path3787-8"
-         style="fill:none;stroke:#ffffff;stroke-width:1.82849753;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-         sodipodi:type="arc" />
-      <text
-         sodipodi:linespacing="125%"
-         id="text3108-8-5-2-7-5-4"
-         y="926.65369"
-         x="171.99205"
-         style="font-size:20px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ececec;fill-opacity:1;stroke:none;font-family:Sans"
-         xml:space="preserve"><tspan
-           y="926.65369"
-           x="171.99205"
-           id="tspan3110-9-8-4-4-5-8"
-           sodipodi:role="line">B</tspan></text>
     </g>
+    <text
+       xml:space="preserve"
+       style="font-size:20px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ececec;fill-opacity:1;stroke:none;font-family:Sans"
+       x="68.037109"
+       y="926.37079"
+       id="text3108-8-5-2-7-4"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3110-9-8-4-4-6"
+         x="68.037109"
+         y="926.37079">PRESS</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:19.99995613px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ececec;fill-opacity:1;stroke:none;font-family:Sans"
+       x="228.74385"
+       y="926.36877"
+       id="text3108-1-9-0-1-5-3"
+       sodipodi:linespacing="125%"
+       transform="scale(0.99999781,1.0000022)"><tspan
+         sodipodi:role="line"
+         id="tspan3110-5-6-4-2-8-2"
+         x="228.74385"
+         y="926.36877">KEY TO EXIT GAME</tspan></text>
+    <path
+       sodipodi:type="arc"
+       style="fill:none;stroke:#ffffff;stroke-width:1.82849753;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="path3787-8"
+       sodipodi:cx="78.791901"
+       sodipodi:cy="333.31973"
+       sodipodi:rx="26.263966"
+       sodipodi:ry="26.263966"
+       d="m 105.05587,333.31973 c 0,14.50519 -11.758782,26.26397 -26.263969,26.26397 -14.505188,0 -26.263966,-11.75878 -26.263966,-26.26397 0,-14.50519 11.758778,-26.26396 26.263966,-26.26396 14.505187,0 26.263969,11.75877 26.263969,26.26396 z"
+       transform="matrix(0.55043667,0,0,0.54338019,136.06608,739.34284)" />
+    <text
+       xml:space="preserve"
+       style="font-size:20px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ececec;fill-opacity:1;stroke:none;font-family:Sans"
+       x="171.99205"
+       y="926.65369"
+       id="text3108-8-5-2-7-5-4"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3110-9-8-4-4-5-8"
+         x="171.99205"
+         y="926.65369">B</tspan></text>
   </g>
 </svg>
