@@ -1,3 +1,7 @@
+/* Author: Dhruv Mohindru
+ * Dated: 10/02/17
+ * Description: Header file for resource module of game.
+ * */
 #ifndef RESOURCES_H
 #define RESOURCES_H
 

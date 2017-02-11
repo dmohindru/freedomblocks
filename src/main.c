@@ -1,5 +1,7 @@
-//#include <SDL/SDL.h>
-//#include <SDL/SDL_image.h> //think of removing it from here
+/* Author: 			Dhruv Mohindru
+ * Date: 				10/02/17
+ * Description:	This is a main file of game which controls all other modules
+ */
 #include <stdio.h>
 #include <stdlib.h>
 #include "gamedefs.h"
@@ -8,6 +10,7 @@
 
 static int scores, level, game_state, hiscore, game_lines;
 
+//Function to draw main play background
 static void DrawBackground()
 {
 	SDL_Rect src, dest;
@@ -18,6 +21,7 @@ static void DrawBackground()
 	dest = src;
 	SDL_BlitSurface(background, &src, screen, &dest);
 }
+//Function to draw welcome screen background
 static void DrawWelcomeBackground()
 {
 	SDL_Rect src, dest;
@@ -28,6 +32,7 @@ static void DrawWelcomeBackground()
 	dest = src;
 	SDL_BlitSurface(welcome, &src, screen, &dest);
 }
+//Function to draw Press A to continue sprite in welcome screen
 static void DrawPressAContinue()
 {
 	SDL_Rect src, dest;
@@ -41,6 +46,7 @@ static void DrawPressAContinue()
 	dest.y = WSCR_PRESSA_STARTY;
 	SDL_BlitSurface(messages, &src, screen, &dest);
 }
+//Function to draw Press A to continue sprite in tutorial screen
 static void DrawPressAContinueTutorial()
 {
 	SDL_Rect src, dest;
@@ -54,6 +60,7 @@ static void DrawPressAContinueTutorial()
 	dest.y = TSCR_PRESSA_STARTY;
 	SDL_BlitSurface(messages, &src, screen, &dest);
 }
+//Function to draw Press B for tutorial sprite on welcome screen
 static void DrawPressB()
 {
 	SDL_Rect src, dest;
@@ -67,6 +74,7 @@ static void DrawPressB()
 	dest.y = WSCR_PRESSB_STARTY;
 	SDL_BlitSurface(messages, &src, screen, &dest);
 }
+//Function to draw confirm quit sprite on game play screen
 static void DrawConfirmQuit()
 {
 	SDL_Rect src, dest;
@@ -80,6 +88,7 @@ static void DrawConfirmQuit()
 	dest.y = GAME_QUIT_STARTY;
 	SDL_BlitSurface(messages, &src, screen, &dest);
 }
+//Function to draw You Win sprite on game play screen
 static void DrawYouWin()
 {
 	SDL_Rect src, dest;
@@ -93,6 +102,7 @@ static void DrawYouWin()
 	dest.y = GAME_STATE_STARTY;
 	SDL_BlitSurface(messages, &src, screen, &dest);
 }
+//Function to draw Game Over sprite on game play screen
 static void DrawGameOver()
 {
 	SDL_Rect src, dest;
@@ -106,6 +116,7 @@ static void DrawGameOver()
 	dest.y = GAME_STATE_STARTY;
 	SDL_BlitSurface(messages, &src, screen, &dest);
 }
+//Function to draw Paused sprite on game play screen
 static void DrawPaused()
 {
 	SDL_Rect src, dest;
@@ -120,6 +131,7 @@ static void DrawPaused()
 	SDL_BlitSurface(messages, &src, screen, &dest);
 	
 }
+//Function to draw You got hi score sprite on game play screen
 static void DrawYouGotHighScore()
 {
 	SDL_Rect src, dest;
@@ -134,6 +146,7 @@ static void DrawYouGotHighScore()
 	SDL_BlitSurface(messages, &src, screen, &dest);
 	
 }
+//Function to draw Press A sprite on game play screen
 static void DrawPressA()
 {
 	SDL_Rect src, dest;
@@ -147,6 +160,7 @@ static void DrawPressA()
 	dest.y = PRESSA_STARTY;
 	SDL_BlitSurface(messages, &src, screen, &dest);
 }
+//Function to draw Tutorial background screen
 static void DrawTutorialBackground()
 {
 	SDL_Rect src, dest;
@@ -157,6 +171,7 @@ static void DrawTutorialBackground()
 	dest = src;
 	SDL_BlitSurface(tutorial, &src, screen, &dest);
 }
+//Function to draw Hi Score on game play screen
 static void DrawHiScores()
 {
 	SDL_Rect src, dest;
@@ -177,6 +192,7 @@ static void DrawHiScores()
 		SDL_BlitSurface(gamedata, &src, screen, &dest);
 	}
 }
+//Function to draw Score on game play screen
 static void DrawScores()
 {
 	SDL_Rect src, dest;
@@ -197,7 +213,7 @@ static void DrawScores()
 		SDL_BlitSurface(gamedata, &src, screen, &dest);
 	}
 }
-
+//Function to draw lines on game play screen
 static void DrawGameLines()
 {
 	SDL_Rect src, dest;
@@ -218,6 +234,7 @@ static void DrawGameLines()
 		SDL_BlitSurface(gamedata, &src, screen, &dest);
 	}
 }
+//Function to draw Level on game play screen
 static void DrawLevel()
 {
 	SDL_Rect src, dest;
@@ -239,6 +256,7 @@ static void DrawLevel()
 	}
 	
 }
+//Function to read hi scores from file
 static int ReadHiScores()
 {
   FILE *hi_score_file;
@@ -257,6 +275,7 @@ static int ReadHiScores()
   return hi_scores;
   
 }
+//Function to save hi scores to a file
 static void SaveHiScores(int hi_scores)
 {
   FILE *hi_score_file;
@@ -269,28 +288,20 @@ static void SaveHiScores(int hi_scores)
   fprintf(hi_score_file, "%d", hi_scores);
   fclose(hi_score_file);
 }
+//Thread to update music
 static int UpdateMusicThread(void *arg)
 {
   arg++; // avoid compiler warning
-  //if(music_playing)
-  //{
-    //StartMusic();
-    PlayMusic();
-  //}
-  //else
-  //{
-  //  StopMusic();
-  //}
+  PlayMusic();
   return 0;
 }
+//Main game loop
 static void PlayGame()
 {
 	int quit = 0, lines_cleared, level_lines = 0, 
       score_factor, timer_running, confirm_quit, game_end, new_tetromino;
-  //int scores, level, game_state, hiscore;
-	unsigned int previous_time, current_time, delay;
-	//unsigned int landed_previous_time, landed_current_time, delay_landed;
-  SDL_Event event;
+  unsigned int previous_time, current_time, delay;
+	SDL_Event event;
 	SDL_keysym keysym;
   SDL_Thread *music_update_thread;
   timer_running = FALSE;
@@ -298,15 +309,11 @@ static void PlayGame()
   confirm_quit = FALSE;
   new_tetromino = FALSE;
   game_state = STATE_WELCOME;
-  //music_playing = FALSE;
   music_update_thread = SDL_CreateThread(UpdateMusicThread, NULL);
   if (music_update_thread == NULL) 
     printf("Unable to start music update thread.\n");
 
-  //hiscore = ReadHiScores();
-  //printf("hi scores: %d\n", hiscore);
- 
-	while(quit == 0)
+  while(quit == 0)
   {
     while(SDL_PollEvent(&event))
     {
@@ -346,14 +353,12 @@ static void PlayGame()
                 InitalizePlayGrid();
                 SpawnNewTetromino();
                 previous_time = SDL_GetTicks();
-                //landed_previous_time = SDL_GetTicks();
                 scores = 0;
                 level = 1;
                 game_lines = 0; 
                 delay = DELAY_START;
                 hiscore = ReadHiScores();
-                //printf("hi scores: %d\n", hiscore);
-              }
+               }
               else if(game_state == STATE_PLAY)
               {
                 if(timer_running && !game_end && !confirm_quit)
@@ -425,8 +430,6 @@ static void PlayGame()
       if(timer_running)
       {
         current_time = SDL_GetTicks();
-        //landed_current_time = SDL_GetTicks();
-        //delay_landed = landed_current_time - landed_previous_time;
         if(current_time - previous_time >= delay)
         {
           if(IfTetrominoLanded() && !game_end)
@@ -436,9 +439,7 @@ static void PlayGame()
             //check for line cleared
             while((lines_cleared = LinesCleared()))
             {
-              //printf("lines_cleared: %d\n", lines_cleared);
               level_lines += lines_cleared;
-              //printf("level_lines: %d\n", level_lines);
               if(level_lines >= LEVEL_LINES)
               {
                 level++;
@@ -449,7 +450,6 @@ static void PlayGame()
               {
                 timer_running = FALSE;
                 game_end = GAME_WIN_STATE;
-                //printf("You win\n");
               }
               scores += lines_cleared * score_factor;
               score_factor += SCORES_BONUS;
@@ -519,19 +519,16 @@ static void PlayGame()
       DrawWelcomeBackground();
       DrawPressAContinue();
       DrawPressB();
-      //music_playing = TRUE;
-      //StartMusic();
     }
     else if(game_state == STATE_TUTORIAL)
     {
       DrawTutorialBackground();
       DrawPressAContinueTutorial();
-     
     }
     SDL_Flip(screen);
 	}
 }
-
+//The main function
 int main(int argc, char **argv)
 {
 	//avoid compiler warnings
@@ -557,10 +554,7 @@ int main(int argc, char **argv)
 	//load game graphics
 	LoadGameGraphics();
   InitMusic();
-  //initalize scores and level
-  //scores = 0;
-  //level = 1;
-	//Play game
+  //Play game
 	PlayGame();
 	//Free game data
 	FreeGameGraphics();

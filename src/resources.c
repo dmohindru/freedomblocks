@@ -1,3 +1,8 @@
+/* Author: Dhruv Mohindru
+ * Dated: 10/02/17
+ * Description: This Module implements loading of .png background files
+ * and music of game.
+ * */
 #include <SDL/SDL.h>
 #include <SDL/SDL_image.h>
 #include <AL/alut.h>
@@ -187,8 +192,6 @@ void PlayMusic()
 						printf("Unable to rewind music file\n");
 						return;
 					}
-          //eof = 1;
-          //break;
         }
       }
       alBufferData(released[i], AL_FORMAT_STEREO16, music_buffer, pos, vi->rate);
@@ -203,19 +206,9 @@ void CloseMusic()
 	alSourceStop(music_source);
 
 	/* Delete the buffer and the source. */
-	//alDeleteBuffers(NUM_BUFFERS, music_buffer);
 	alDeleteSources(1, &music_source);
 	alutExit();
   ov_clear(&vf);
-	//free(buf);
-	/* Close the music file, if one is open. */
-	//if (music_file_loaded) {
-	//    ov_clear(&vf);
-	//    music_file_loaded = 0;
-	//}
-
-	//music_enabled = 0;
-  //  }
 }
 void StopMusic()
 {

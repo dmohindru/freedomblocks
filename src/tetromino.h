@@ -1,3 +1,7 @@
+/* Author: Dhruv Mohindru
+ * Dated: 10/02/17
+ * Description: Header file for tetromino module of game.
+ * */
 #ifndef TETROMINO_H
 #define TETROMINO_H
 

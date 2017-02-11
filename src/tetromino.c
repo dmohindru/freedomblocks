@@ -1,3 +1,8 @@
+/* Author: Dhruv Mohindru
+ * Dated: 10/02/17
+ * Description: Tetromino module which implements core logic of game play
+ * retated to tetromino movement, rotation, landing, line clear, statistics.
+ * */
 #include <SDL/SDL.h>
 #include <time.h>
 #include "tetromino.h"
@@ -181,11 +186,9 @@ void DrawNextTetromino()
   src.y = SQUARE_STARTY;
   dest.w = SQUARE_WIDTH;
   dest.h = SQUARE_WIDTH;
-  //row = 0;
   row = NEXT_TETROMINO_ROW;
   for(i=0;i<TETROMINO_GRID;i++)
   {
-    //col = PLAY_GRID_COL + 1;
     col = NEXT_TETROMINO_COL;
     for(j=0;j<TETROMINO_GRID;j++)
     {
@@ -247,7 +250,6 @@ void RotateTetromino()
   int new_rotation, new_col, i, j;
   new_rotation = cur_rotation + 1;
   new_col = cur_col;
-  //cur_rotation++;
   if(new_rotation >= TETROMINO_ROTATION)
     new_rotation = 0;
   //first check for out of bound
@@ -268,7 +270,6 @@ void RotateTetromino()
   }
   cur_col = new_col;
   cur_rotation = new_rotation;
-  
 }
 void MoveTetromino(int direction)
 {

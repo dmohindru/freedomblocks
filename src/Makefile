@@ -1,10 +1,11 @@
+#Author: 			Dhruv Mohindru
+#Dated: 			10/02/17
+#Description:	Make for the game
 CFLAGS=-W -Wall -ggdb `sdl-config --cflags`
-# LIBS=-lm `sdl-config --libs` -ltcl -lopenal -lsndfile -lvorbisfile -lvorbis -logg -lalut
 LIBS=`sdl-config --libs` -lSDL_image
 _OBJS= main.o resources.o tetromino.o
 MUSIC_LIBS= -lvorbisfile -lvorbis -logg -lalut -lopenal
 ODIR = ../build-linux
-#SDIR = src
 OBJS = $(patsubst %, $(ODIR)/%, $(_OBJS))
 
 .PHONY: clean
