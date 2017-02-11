@@ -1,24 +1,25 @@
 CFLAGS=-W -Wall -ggdb `sdl-config --cflags`
 # LIBS=-lm `sdl-config --libs` -ltcl -lopenal -lsndfile -lvorbisfile -lvorbis -logg -lalut
 LIBS=`sdl-config --libs` -lSDL_image
-OBJS= main.o resources.o tetromino.o
+_OBJS= main.o resources.o tetromino.o
 MUSIC_LIBS= -lvorbisfile -lvorbis -logg -lalut -lopenal
-#CC=gcc
+ODIR = ../build-linux
+#SDIR = src
+OBJS = $(patsubst %, $(ODIR)/%, $(_OBJS))
 
 .PHONY: clean
 
-freedomblock: $(OBJS)
-	gcc $(CFLAGS) $(OBJS) -o freedomblock $(LIBS) $(MUSIC_LIBS)
+$(ODIR)/freedomblock: $(OBJS)
+	gcc $(CFLAGS) $(OBJS) -o $@ $(LIBS) $(MUSIC_LIBS)
 
-main.o:	main.c gamedefs.h tetromino.h
-	gcc $(CFLAGS) -c main.c
+$(ODIR)/main.o:	main.c gamedefs.h tetromino.h
+	gcc $(CFLAGS) -c main.c -o $@
 
-resources.o: resources.c resources.h
-	gcc $(CFLAGS) -c resources.c
+$(ODIR)/resources.o: resources.c resources.h
+	gcc $(CFLAGS) -c resources.c -o $@
 
-tetromino.o: tetromino.c tetromino.h gamedefs.h
-	gcc $(CFLAGS) -c tetromino.c
+$(ODIR)/tetromino.o: tetromino.c tetromino.h gamedefs.h
+	gcc $(CFLAGS) -c tetromino.c -o $@
 	
 clean:
-	rm -f freedomblock $(OBJS)
-	rm -f *~
+	rm -f $(ODIR)/freedomblock $(OBJS)
